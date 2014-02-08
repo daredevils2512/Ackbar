@@ -29,6 +29,8 @@ public:
 	static const float GOALANGLE;
 	static const float TRUSSANGLE;
 	static const float FLOORANGLE;
+	static const float MINANGLE;
+	static const float MAXANGLE;
 	Trunnion();
 	void InitDefaultCommand();
 	float GetAngle();

@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "AutonDrive.h"
 #include <cmath>
-
 AutonDrive::AutonDrive(int dist, float speed) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
