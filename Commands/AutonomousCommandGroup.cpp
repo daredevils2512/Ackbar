@@ -10,13 +10,14 @@
 
 
 
+#include "AutonomousCommandGroup.h"
+#include "Visiontrack.h"
+#include "GoToAngle.h"
+#include "AutonWait.h"
 #include "Shoot.h"
-#include "ShootPause.h"
-#include "Release.h"
-#include "PullBack.h"
-#include "ClawSet.h"
+#include "AutonDrive.h"
 
-Shoot::Shoot() {
+AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -33,11 +34,22 @@ Shoot::Shoot() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	if(!Robot::claw->GetClaw()) {
-		AddSequential(new ClawSet());
+	AddSequential(new Visiontrack());
+	AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
+	
+	switch(position) {
+	case 1: // SIDE
+		if(!Robot::vision->GetGoalState()) {
+			AddSequential(new AutonWait());
+		}
+		AddSequential(new Shoot());
+		AddSequential(new AutonDrive(100, 0.25));
+		break;
+	case 2: // CENTER
+		
+		break;
+	case 3: // CENTER 2 SHOT
+		
+		break;
 	}
-	AddSequential(new Release());
-	AddSequential(new ShootPause());
-	AddSequential(new PullBack());
-	AddSequential(new ClawSet());
 }
