@@ -39,7 +39,7 @@ void Claw::SetWheel(bool on) {
 	}
 }
 bool Claw::GetWheel() {
-	if(clawWheel->Get() == 1) {
+	if(clawWheel->Get() >= 0.5) {
 		return true;
 	}
 	else {

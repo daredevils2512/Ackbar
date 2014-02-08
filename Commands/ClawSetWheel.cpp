@@ -17,7 +17,7 @@ ClawSetWheel::ClawSetWheel() {
 }
 // Called just before this Command runs the first time
 void ClawSetWheel::Initialize() {
-	Robot::claw->SetClaw(!Robot::claw->GetClaw());
+	Robot::claw->SetWheel(!Robot::claw->GetWheel());
 }
 // Called repeatedly when this Command is scheduled to run
 void ClawSetWheel::Execute() {
