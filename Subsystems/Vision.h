@@ -12,7 +12,6 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../VisionSample2014/VisionSample2014.h"
-
 /**
  *
  *

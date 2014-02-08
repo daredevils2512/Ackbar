@@ -14,7 +14,6 @@
 #include "Commands/AngleUp.h"
 #include "Commands/AutonDrive.h"
 #include "Commands/AutonWait.h"
-#include "Commands/AutonomousCommand.h"
 #include "Commands/AutonomousCommandGroup.h"
 #include "Commands/CheckBall.h"
 #include "Commands/ClawSet.h"
@@ -61,7 +60,6 @@ OI::OI() {
 	shiftButton1->WhenPressed(new ShiftUp());
      
         // SmartDashboard Buttons
-	SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
 	SmartDashboard::PutData("ShiftUp", new ShiftUp());
 	SmartDashboard::PutData("ShiftDown", new ShiftDown());
 	SmartDashboard::PutData("AngleUp", new AngleUp());
