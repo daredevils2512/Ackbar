@@ -8,6 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "AutonDrive.h"
+#include <cmath>
+
 AutonDrive::AutonDrive(int dist, float speed) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -23,13 +25,13 @@ void AutonDrive::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void AutonDrive::Execute() {
-	if(Robot::drivetrain->GetDistance() < distance) {
+	if(fabs(Robot::drivetrain->GetDistance()) < distance) {
 		Robot::drivetrain->Go(rate);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool AutonDrive::IsFinished() {
-	if(Robot::drivetrain->GetDistance() >= distance) {
+	if(fabs(Robot::drivetrain->GetDistance()) >= distance) {
 		return true;
 	}
 	else {
