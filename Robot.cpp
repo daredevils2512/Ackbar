@@ -70,7 +70,7 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutBoolean("Cocked", Robot::shooter->GetCocked());
 	SmartDashboard::PutNumber("LeftDrive", Robot::drivetrain->left->Get());
 	SmartDashboard::PutNumber("RightDrive", Robot::drivetrain->right->Get());
-		
+	SmartDashboard::PutBoolean("HOT", vision->Hot());
 	
 }
 void Robot::TestPeriodic() {

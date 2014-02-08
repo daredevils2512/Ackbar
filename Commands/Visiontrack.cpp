@@ -16,11 +16,11 @@ Visiontrack::Visiontrack() {
 }
 // Called just before this Command runs the first time
 void Visiontrack::Initialize() {
-	
+	Robot::vision->SetToAutonomous();
 }
 // Called repeatedly when this Command is scheduled to run
 void Visiontrack::Execute() {
-	
+	Robot::vision->SetGoalState(Robot::vision->Hot());
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Visiontrack::IsFinished() {
@@ -28,7 +28,7 @@ bool Visiontrack::IsFinished() {
 }
 // Called once after isFinished returns true
 void Visiontrack::End() {
-	
+	Robot::vision->SetToTeleop();
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
