@@ -89,6 +89,8 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutBoolean("VisionTracking", Robot::vision->GetGoalState());
 	SmartDashboard::PutBoolean("BallInClaw", Robot::lights->HasBall());
 	SmartDashboard::PutNumber("LEDNumber", Robot::lights->clawLeds->Get());
+	
+	//if(Robot::oi->getS)
 }
 void Robot::TestPeriodic() {
 	lw->Run();

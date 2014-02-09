@@ -33,7 +33,7 @@ void Lights::SetClawLed(bool on) {
 }
 void Lights::Update() {
 	if(ledsOn) {
-		clawLeds->Set(Relay::kOn);
+		clawLeds->Set(Relay::kForward);
 	}
 	else {
 		clawLeds->Set(Relay::kOff);
