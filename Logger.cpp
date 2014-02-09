@@ -7,6 +7,7 @@ const std::string lognames [] = {"DEBUG", "INFO", "WARN", "ERROR"};
 Logger::Logger(){
 	currentLogLevel = LOG_DEBUG;
 	logfile = fopen("log.txt", "a");
+	LogDebug("Begin Logging");
 }
 
 void Logger::ChangeLogLevel(LogLevel newLogLevel){
