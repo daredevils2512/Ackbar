@@ -23,7 +23,8 @@
  */
 class AutonWait: public Command {
 public:
-	AutonWait();
+	float waitTime;
+	AutonWait(float time);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -36,13 +36,14 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+	AddSequential(new AutonWait(1));
 	AddSequential(new Visiontrack());
 	AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 	
 	switch(position) {
 	case 1: // 1 Shot
 		if(!Robot::vision->GetGoalState()) {
-			AddSequential(new AutonWait());
+			AddSequential(new AutonWait(1));
 		}
 		AddSequential(new Shoot());
 		AddSequential(new AutonDrive(100, 0.25));
