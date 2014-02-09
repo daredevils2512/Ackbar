@@ -31,9 +31,9 @@ bool Lights::HasBall() {
 void Lights::SetClawLed(bool on) {
 	ledsOn = on;
 }
-void Lights::Update() {
-	if(ledsOn) {
-		clawLeds->Set(Relay::kOn);
+void Lights::Update(bool on) {
+	if(!on) {
+		clawLeds->Set(Relay::kForward);
 	}
 	else {
 		clawLeds->Set(Relay::kOff);

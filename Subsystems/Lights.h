@@ -30,7 +30,7 @@ public:
 	void InitDefaultCommand();
 	bool HasBall();
 	void SetClawLed(bool on);
-	void Update();
+	void Update(bool on);
 	bool GetLeds();
 };
 #endif

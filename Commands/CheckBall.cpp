@@ -22,7 +22,7 @@ void CheckBall::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CheckBall::Execute() {
 	//Robot::lights->SetClawLed(Robot::lights->HasBall());
-	Robot::lights->Update();
+	Robot::lights->Update(Robot::lights->HasBall());
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CheckBall::IsFinished() {
