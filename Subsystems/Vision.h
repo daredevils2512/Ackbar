@@ -12,7 +12,6 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../VisionSample2014/VisionSample2014.h"
-
 /**
  *
  *
@@ -33,6 +32,7 @@ public:
 	bool GetGoalState();
 	void SetToTeleop();
 	void SetToAutonomous();
-	void Hot();
+	bool Hot();
+	void SetGoalState(bool state);
 };
 #endif

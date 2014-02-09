@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "Vision.h"
 #include "../Robotmap.h"
-
 Vision::Vision() : Subsystem("Vision"),
 	camera(AxisCamera::GetInstance("10.25.12.11")),
 	visionObj(new VisionSample2014)
@@ -35,6 +34,9 @@ void Vision::SetToTeleop() {
 void Vision::SetToAutonomous() {
 	camera.WriteBrightness(0);
 }
-void Vision::Hot() {
-	visionObj->ProcessImage();
+bool Vision::Hot() {
+	return visionObj->ProcessImage();
+}
+void Vision::SetGoalState(bool state) {
+	goalState = state;
 }

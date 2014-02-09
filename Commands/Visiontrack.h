@@ -23,6 +23,8 @@
  */
 class Visiontrack: public Command {
 public:
+	int hotCount;
+	int times;
 	Visiontrack();
 	virtual void Initialize();
 	virtual void Execute();

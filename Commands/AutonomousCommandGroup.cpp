@@ -18,6 +18,10 @@
 #include "AutonDrive.h"
 #include "TurnToAngle.h"
 #include "ClawSetWheel.h"
+#include "ClawSet.h"
+#include "Release.h"
+#include "Pullback.h"
+
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -37,7 +41,6 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 	AddSequential(new AutonWait(1));
-	AddSequential(new Visiontrack());
 	AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 	
 	switch(position) {
@@ -45,8 +48,13 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		if(!Robot::vision->GetGoalState()) {
 			AddSequential(new AutonWait(1));
 		}
-		AddSequential(new Shoot());
-		AddSequential(new AutonDrive(100, 0.25));
+		//if(!Robot::claw->GetClaw()) {
+			AddParallel(new ClawSet());
+		//}
+		AddSequential(new  Release());
+		AddParallel(new ClawSet());
+		AddParallel(new PullBack());
+		AddParallel(new AutonDrive(1000, 0.25));
 		break;
 	case 2: // 2 SHOT
 		if(Robot::vision->GetGoalState()) {
@@ -61,20 +69,20 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		} else {
 			AddSequential(new TurnToAngle(true, 30));
 		}
-		if(!Robot::claw->GetWheel()) {
+		//if(!Robot::claw->GetWheel()) {
 			AddParallel(new ClawSetWheel());
-		}
-		AddSequential(new AutonDrive(20, 0.25));
+		//}
+		AddSequential(new AutonDrive(1000, 0.25));
 		AddParallel(new ClawSetWheel());
 		AddParallel(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		AddSequential(new AutonDrive(-20, -0.25));
+		AddSequential(new AutonDrive(-1000, -0.25));
 		if(Robot::vision->GetGoalState()) {
 			AddSequential(new TurnToAngle(true, -30));
 		} else {
 			AddSequential(new TurnToAngle(true, 30));
 		}
 		AddSequential(new Shoot());
-		AddSequential(new AutonDrive(100, 0.25));
+		AddSequential(new AutonDrive(1000, 0.25));
 		break;
 	}
 }

@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "Visiontrack.h"
+#include <cmath>
 Visiontrack::Visiontrack() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -17,10 +18,22 @@ Visiontrack::Visiontrack() {
 // Called just before this Command runs the first time
 void Visiontrack::Initialize() {
 	Robot::vision->SetToAutonomous();
+	hotCount = 0;
+	times = 3;
 }
 // Called repeatedly when this Command is scheduled to run
-void Visiontrack::Execute() {
-	Robot::vision->Hot();
+void Visiontrack::Execute() {		
+	for(int i = 0; i < 1; i++) {
+		if(Robot::vision->Hot()) {
+			hotCount++;
+		}
+	}
+	if(hotCount > 0) {
+		Robot::vision->SetGoalState(true);
+	}
+	else {
+		Robot::vision->SetGoalState(false);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Visiontrack::IsFinished() {

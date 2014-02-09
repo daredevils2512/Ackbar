@@ -38,6 +38,6 @@ Shoot::Shoot() {
 	}
 	AddSequential(new Release());
 	AddSequential(new ShootPause());
-	AddSequential(new PullBack());
 	AddSequential(new ClawSet());
+	AddSequential(new PullBack());	
 }

@@ -18,12 +18,12 @@ ShiftUp::ShiftUp() {
 // Called just before this Command runs the first time
 void ShiftUp::Initialize() {
 	SetInterruptible(false);
-	SetTimeout(1);
+	SetTimeout(0.2);
 	Robot::drivetrain->Stop();
 }
 // Called repeatedly when this Command is scheduled to run
 void ShiftUp::Execute() {
-	if(TimeSinceInitialized() > 0.5) {
+	if(TimeSinceInitialized() > 0.1) {
 		Robot::drivetrain->Shift(true);
 	}
 }

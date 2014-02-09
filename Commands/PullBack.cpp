@@ -18,7 +18,7 @@ PullBack::PullBack() {
 // Called just before this Command runs the first time
 void PullBack::Initialize() {
 	SetInterruptible(false);
-	SetTimeout(3.75);
+	SetTimeout(7);
 }
 // Called repeatedly when this Command is scheduled to run
 void PullBack::Execute() {
