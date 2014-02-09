@@ -67,7 +67,7 @@ void Drivetrain::Go(float rate) {
 	chassis->Drive(rate, 0);
 }
 int Drivetrain::GetDistance() {
-	return (leftEncoder->Get() + rightEncoder->Get()) / 2;
+	return -1 * rightEncoder->GetRaw();
 }
 void Drivetrain::DistanceReset() {
 	leftEncoder->Reset();

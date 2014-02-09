@@ -68,7 +68,11 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutBoolean("Cocked", Robot::shooter->GetCocked());
 	SmartDashboard::PutNumber("LeftDrive", Robot::drivetrain->left->Get());
 	SmartDashboard::PutNumber("RightDrive", Robot::drivetrain->right->Get());
-		
+	SmartDashboard::PutNumber("Encoder Average", Robot::drivetrain->GetDistance());
+	SmartDashboard::PutNumber("Encoder left", Robot::drivetrain->leftEncoder->Get());
+	SmartDashboard::PutNumber("Encoder right", Robot::drivetrain->rightEncoder->Get());
+	SmartDashboard::PutNumber("Encoder left raw", Robot::drivetrain->leftEncoder->GetRaw());
+	SmartDashboard::PutNumber("Encoder right raw", Robot::drivetrain->rightEncoder->GetRaw());
 	
 }
 void Robot::TestPeriodic() {

@@ -51,12 +51,12 @@ void RobotMap::init() {
 	drivetrainGyro = new Gyro(1, 1);
 	lw->AddSensor("Drivetrain", "Gyro", drivetrainGyro);
 	drivetrainGyro->SetSensitivity(0.007);
-	drivetrainLeftEncoder = new Encoder(1, 1, 1, 2, false, Encoder::k4X);
+	drivetrainLeftEncoder = new Encoder(1, 3, 1, 4, false, Encoder::k4X);
 	lw->AddSensor("Drivetrain", "LeftEncoder", drivetrainLeftEncoder);
 	drivetrainLeftEncoder->SetDistancePerPulse(1.0);
         drivetrainLeftEncoder->SetPIDSourceParameter(Encoder::kRate);
         drivetrainLeftEncoder->Start();
-	drivetrainRightEncoder = new Encoder(1, 3, 1, 4, false, Encoder::k4X);
+	drivetrainRightEncoder = new Encoder(1, 1, 1, 2, false, Encoder::k4X);
 	lw->AddSensor("Drivetrain", "RightEncoder", drivetrainRightEncoder);
 	drivetrainRightEncoder->SetDistancePerPulse(1.0);
         drivetrainRightEncoder->SetPIDSourceParameter(Encoder::kRate);
