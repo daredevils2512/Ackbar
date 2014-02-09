@@ -17,6 +17,7 @@ void Logger::ChangeLogLevel(LogLevel newLogLevel){
 void Logger::Log(LogLevel loglevel, const char* message){
 	if (loglevel >= currentLogLevel){
 		fprintf(logfile, "%s:%s\n", lognames[loglevel].c_str(), message);
+		fflush(logfile);
 	}
 }
 
