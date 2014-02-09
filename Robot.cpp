@@ -75,6 +75,8 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutNumber("Encoder left raw", Robot::drivetrain->leftEncoder->GetRaw());
 	SmartDashboard::PutNumber("Encoder right raw", Robot::drivetrain->rightEncoder->GetRaw());
 	SmartDashboard::PutBoolean("VisionTracking", Robot::vision->GetGoalState());
+	SmartDashboard::PutBoolean("BallInClaw", Robot::lights->HasBall());
+	SmartDashboard::PutNumber("LEDNumber", Robot::lights->clawLeds->Get());
 }
 void Robot::TestPeriodic() {
 	lw->Run();
