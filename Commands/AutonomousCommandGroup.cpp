@@ -54,7 +54,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new  Release());
 		AddParallel(new ClawSet());
 		AddParallel(new PullBack());
-		AddParallel(new AutonDrive(1000, 0.25));
+		AddParallel(new AutonDrive(1000, 1));
 		break;
 	case 2: // 2 SHOT
 		if(Robot::vision->GetGoalState()) {
@@ -72,17 +72,17 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		//if(!Robot::claw->GetWheel()) {
 			AddParallel(new ClawSetWheel());
 		//}
-		AddSequential(new AutonDrive(1000, 0.25));
+		AddSequential(new AutonDrive(1000, 1));
 		AddParallel(new ClawSetWheel());
 		AddParallel(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		AddSequential(new AutonDrive(-1000, -0.25));
+		AddSequential(new AutonDrive(-1000, -1));
 		if(Robot::vision->GetGoalState()) {
 			AddSequential(new TurnToAngle(true, -30));
 		} else {
 			AddSequential(new TurnToAngle(true, 30));
 		}
 		AddSequential(new Shoot());
-		AddSequential(new AutonDrive(1000, 0.25));
+		AddSequential(new AutonDrive(1000, 1));
 		break;
 	}
 }
