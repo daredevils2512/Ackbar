@@ -51,6 +51,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		//if(!Robot::claw->GetClaw()) {
 			AddParallel(new ClawSet());
 		//}
+		AddSequential(new AutonWait(0.125));
 		AddSequential(new  Release());
 		AddParallel(new ClawSet());
 		AddParallel(new PullBack());
