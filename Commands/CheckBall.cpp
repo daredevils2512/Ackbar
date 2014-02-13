@@ -23,6 +23,9 @@ void CheckBall::Initialize() {
 void CheckBall::Execute() {
 	//Robot::lights->SetClawLed(Robot::lights->HasBall());
 	Robot::lights->Update(Robot::lights->HasBall());
+	if(Robot::lights->HasBall()) {
+		Robot::claw->SetWheel(false);
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CheckBall::IsFinished() {

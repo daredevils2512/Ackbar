@@ -72,7 +72,7 @@ float Drivetrain::GetDirection() {
 	return -1 * gyro->GetAngle();
 }
 void Drivetrain::Go(float rate) {
-	chassis->Drive(rate, 0.0);
+	chassis->TankDrive(rate, rate);
 }
 int Drivetrain::GetDistance() {
 	return -1 * leftEncoder->GetRaw();

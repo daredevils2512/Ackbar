@@ -11,7 +11,7 @@
 #include "Trunnion.h"
 #include "../Robotmap.h"
 const float Trunnion::GOALANGLE = 2.259;
-const float Trunnion::TRUSSANGLE = 3.165;
+const float Trunnion::TRUSSANGLE = 3.0;
 const float Trunnion::FLOORANGLE = 0.119;
 const float Trunnion::MINANGLE = 0.119;
 const float Trunnion::MAXANGLE = 3.8;

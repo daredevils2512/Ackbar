@@ -55,7 +55,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new  Release());
 		AddParallel(new ClawSet());
 		AddParallel(new PullBack());
-		AddParallel(new AutonDrive(1000, 0.25));
+		AddSequential(new AutonDrive(1000, 1.0));
 		break;
 	case 2: // 2 SHOT
 		if(Robot::vision->GetGoalState()) {
