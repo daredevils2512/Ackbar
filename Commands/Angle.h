@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef ANGLEUP_H
-#define ANGLEUP_H
+#ifndef ANGLE_H
+#define ANGLE_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,9 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class AngleUp: public Command {
+class Angle: public Command {
 public:
-	AngleUp();
+	Angle();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
