@@ -52,7 +52,7 @@ void Drivetrain::DriveWithStick(float xAxis, float yAxis) {
 	chassis->ArcadeDrive(deltaX, deltaY);
 }
 void Drivetrain::Shift(bool dir) {
-	if(dir) {
+	if(!dir) {
 		gear1->Set(true);
 		gear2->Set(false);
 	}

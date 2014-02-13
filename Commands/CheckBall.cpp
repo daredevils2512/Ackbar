@@ -17,15 +17,16 @@ CheckBall::CheckBall() {
 }
 // Called just before this Command runs the first time
 void CheckBall::Initialize() {
-	
+	previousLightState = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void CheckBall::Execute() {
 	//Robot::lights->SetClawLed(Robot::lights->HasBall());
 	Robot::lights->Update(Robot::lights->HasBall());
-	if(Robot::lights->HasBall()) {
+	if(Robot::lights->HasBall() && previousLightState == false) {
 		Robot::claw->SetWheel(false);
 	}
+	previousLightState = Robot::lights->HasBall();
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CheckBall::IsFinished() {

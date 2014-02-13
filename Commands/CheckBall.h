@@ -23,6 +23,7 @@
  */
 class CheckBall: public Command {
 public:
+	bool previousLightState;
 	CheckBall();
 	virtual void Initialize();
 	virtual void Execute();

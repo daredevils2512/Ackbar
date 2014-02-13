@@ -26,13 +26,13 @@ void Lights::InitDefaultCommand() {
 	ledsOn = false;
 }
 bool Lights::HasBall() {
-	return ballEye->Get();
+	return !ballEye->Get();
 }
 void Lights::SetClawLed(bool on) {
 	ledsOn = on;
 }
 void Lights::Update(bool on) {
-	if(!on) {
+	if(on) {
 		clawLeds->Set(Relay::kForward);
 	}
 	else {

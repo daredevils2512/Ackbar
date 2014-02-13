@@ -12,6 +12,7 @@
 
 #include "FloorSnapReleased.h"
 #include "GoToAngle.h"
+#include "ClawSetWheel.h"
 
 FloorSnapReleased::FloorSnapReleased() {
 	// Add Commands here:
@@ -30,7 +31,8 @@ FloorSnapReleased::FloorSnapReleased() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	
+	if(Robot::claw->GetWheel()) {
+		AddSequential(new ClawSetWheel());
+	}
 	AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-	Robot::claw->SetWheel(false);
 }
