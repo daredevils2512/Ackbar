@@ -51,39 +51,47 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		//if(!Robot::claw->GetClaw()) {
 			AddParallel(new ClawSet());
 		//}
-		AddSequential(new AutonWait(0.125));
+		AddSequential(new AutonWait(0.25));
 		AddSequential(new  Release());
 		AddParallel(new ClawSet());
 		AddParallel(new PullBack());
-		AddSequential(new AutonDrive(1000, 1.0));
+		AddSequential(new AutonDrive(0.5, 0.75));
+		//AddSequential(new TurnToAngle(true, 180));
 		break;
 	case 2: // 2 SHOT
 		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, 30));
+			AddSequential(new TurnToAngle(true, 15));
 		} else {
-			AddSequential(new TurnToAngle(true, -30));
+			AddSequential(new TurnToAngle(true, -15));
 		}
-		AddSequential(new Shoot());
+		//AddSequential(new Shoot());
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, -30));
+			AddSequential(new TurnToAngle(true, -15));
 		} else {
-			AddSequential(new TurnToAngle(true, 30));
+			AddSequential(new TurnToAngle(true, 15));
 		}
 		//if(!Robot::claw->GetWheel()) {
 			AddParallel(new ClawSetWheel());
 		//}
-		AddSequential(new AutonDrive(1000, 0.25));
+		AddSequential(new AutonDrive(0.5, 0.5));
 		AddParallel(new ClawSetWheel());
 		AddParallel(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		AddSequential(new AutonDrive(-1000, -0.25));
+		AddSequential(new AutonDrive(0.5, 0.5));
 		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, -30));
+			AddSequential(new TurnToAngle(true, -15));
 		} else {
-			AddSequential(new TurnToAngle(true, 30));
+			AddSequential(new TurnToAngle(true, 15));
+		}
+		//AddSequential(new Shoot());
+		//AddSequential(new AutonDrive(0.5, 0.75));
+		break;
+		
+	case 3:
+		if(!Robot::vision->GetGoalState()) {
+			AddSequential(new TurnToAngle(true, 15));
 		}
 		AddSequential(new Shoot());
-		AddSequential(new AutonDrive(1000, 0.25));
 		break;
 	}
 }

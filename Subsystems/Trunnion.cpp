@@ -12,7 +12,7 @@
 #include "../Robotmap.h"
 #include "../Commands/Angle.h"
 
-const float Trunnion::GOALANGLE = 2.145;
+const float Trunnion::GOALANGLE = 2.439;
 const float Trunnion::TRUSSANGLE = 3.0;
 const float Trunnion::FLOORANGLE = 0.0;
 const float Trunnion::MINANGLE = 0.0;

@@ -72,14 +72,18 @@ float Drivetrain::GetDirection() {
 	return -1 * gyro->GetAngle();
 }
 void Drivetrain::Go(float rate) {
-	chassis->TankDrive(rate, rate);
+	chassis->TankDrive(rate, -rate);
 }
 int Drivetrain::GetDistance() {
 	return -1 * leftEncoder->GetRaw();
 }
 void Drivetrain::DistanceReset() {
+	leftEncoder->Stop();
+	rightEncoder->Stop();
 	leftEncoder->Reset();
 	rightEncoder->Reset();
+	leftEncoder->Start();
+	rightEncoder->Start();
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
