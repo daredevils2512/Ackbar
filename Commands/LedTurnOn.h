@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef TOGGLELED_H
-#define TOGGLELED_H
+#ifndef LEDTURNON_H
+#define LEDTURNON_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,9 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ToggleLED: public Command {
+class LedTurnOn: public Command {
 public:
-	ToggleLED();
+	LedTurnOn();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

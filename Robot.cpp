@@ -45,6 +45,8 @@ void Robot::RobotInit() {
   }
 	
 void Robot::AutonomousInit() {
+	ledTurnOn = new LedTurnOn();
+	ledTurnOn->Start();
 	if (autonomousCommand != NULL)
 		autonomousCommand->Start();
 }
@@ -59,7 +61,7 @@ void Robot::TeleopInit() {
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
 	autonomousCommand->Cancel();
-	
+	ledTurnOn->Cancel();
 }
 	
 void Robot::TeleopPeriodic() {

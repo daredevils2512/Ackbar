@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "Angle.h"
 #include <cmath>
-
 Angle::Angle() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
