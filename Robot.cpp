@@ -84,6 +84,7 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutBoolean("BallInClaw", Robot::lights->HasBall());
 	SmartDashboard::PutNumber("LEDNumber", Robot::lights->clawLeds->Get());
 	SmartDashboard::PutBoolean("EnoughPressure", Robot::compressorSubsystem->compressor1->GetPressureSwitchValue());
+	SmartDashboard::PutBoolean("Loaded", Robot::shooter->loaded);
 }
 void Robot::TestPeriodic() {
 	lw->Run();

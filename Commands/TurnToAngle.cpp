@@ -30,10 +30,10 @@ void TurnToAngle::Initialize() {
 void TurnToAngle::Execute() {
 	if(fabs(Robot::drivetrain->GetDirection() - angle) > 5) {
 		if(Robot::drivetrain->GetDirection() > angle) {
-			Robot::drivetrain->Turn(1);
+			Robot::drivetrain->Turn(0.5);
 		}
 		else {
-			Robot::drivetrain->Turn(-1);
+			Robot::drivetrain->Turn(-0.5);
 		}
 	}
 }

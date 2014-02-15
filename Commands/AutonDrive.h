@@ -23,9 +23,9 @@
  */
 class AutonDrive: public Command {
 public:
-	int distance;
+	float time;
 	float rate;
-	AutonDrive(int dist, float speed);
+	AutonDrive(float timer, float speed);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
