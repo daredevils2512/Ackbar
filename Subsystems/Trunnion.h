@@ -31,6 +31,8 @@ public:
 	static const float FLOORANGLE;
 	static const float MINANGLE;
 	static const float MAXANGLE;
+	static const float AUTON1ANGLE;
+	static const float AUTON2ANGLE;
 	Trunnion();
 	void InitDefaultCommand();
 	float GetAngle();

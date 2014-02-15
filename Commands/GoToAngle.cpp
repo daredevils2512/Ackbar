@@ -29,22 +29,44 @@ void GoToAngle::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void GoToAngle::Execute() {
-	if(fabs(Robot::trunnion->GetAngle() - angle) > 0.1) {
-		if(Robot::trunnion->GetAngle() > angle) {
-			Robot::trunnion->SetAngleMotors(-0.70);
+	if(Robot::trunnion->GetAngle() > 0.5) {
+		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.1) {
+			if(Robot::trunnion->GetAngle() > angle) {
+				Robot::trunnion->SetAngleMotors(-0.70);
+			}
+			else {
+				Robot::trunnion->SetAngleMotors(0.70);
+			}
 		}
-		else {
-			Robot::trunnion->SetAngleMotors(0.70);
+	}
+	else {
+		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.025) {
+			if(Robot::trunnion->GetAngle() > angle) {
+				Robot::trunnion->SetAngleMotors(-0.70);
+			}
+			else {
+				Robot::trunnion->SetAngleMotors(0.70);
+			}
 		}
 	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool GoToAngle::IsFinished() {
-	if((fabs(Robot::trunnion->GetAngle() - angle) < 0.1)) {
-		return true;
+	if(Robot::trunnion->GetAngle() > 0.5) {
+		if((fabs(Robot::trunnion->GetAngle() - angle) < 0.1)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	else {
-		return false;
+		if((fabs(Robot::trunnion->GetAngle() - angle) < 0.025)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
 // Called once after isFinished returns true
