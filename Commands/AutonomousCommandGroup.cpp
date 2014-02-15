@@ -59,37 +59,34 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		//AddSequential(new TurnToAngle(true, 180));
 		break;
 	case 2: // 2 SHOT
-		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, 15));
-		} else {
-			AddSequential(new TurnToAngle(true, -15));
-		}
-		//AddSequential(new Shoot());
-		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
-		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, -15));
-		} else {
-			AddSequential(new TurnToAngle(true, 15));
-		}
-		//if(!Robot::claw->GetWheel()) {
-			AddParallel(new ClawSetWheel());
+		//if(!Robot::vision->GetGoalState()) {
+		//	AddSequential(new TurnToAngle(false, -15));
+			AddSequential(new Shoot());
+		//	AddSequential(new TurnToAngle(false, 15));
 		//}
-		AddSequential(new AutonDrive(0.5, 0.5));
-		AddParallel(new ClawSetWheel());
-		AddParallel(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		AddSequential(new AutonDrive(0.5, 0.5));
-		if(Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, -15));
-		} else {
-			AddSequential(new TurnToAngle(true, 15));
-		}
-		//AddSequential(new Shoot());
-		//AddSequential(new AutonDrive(0.5, 0.75));
+		//else {
+			AddSequential(new Shoot());
+		//}
+		AddSequential(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
+		AddSequential(new ClawSetWheel());
+		AddSequential(new AutonWait(.25));
+		AddParallel(new AutonDrive(0.75, 0.5));
+		AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
+		AddSequential(new ClawSetWheel());
+		//AddSequential(new AutonDrive(0.75, -0.5));
+		//if(!Robot::vision->GetGoalState()) {
+		//	AddSequential(new TurnToAngle(false, -15));
+			AddSequential(new Shoot());
+		//	AddSequential(new TurnToAngle(false, 15));
+		//}
+		//else {
+		//	AddSequential(new Shoot());
+		//}
+		AddSequential(new AutonDrive(0.5, 0.75));
 		break;
-		
 	case 3:
 		if(!Robot::vision->GetGoalState()) {
-			AddSequential(new TurnToAngle(true, 15));
+			AddSequential(new TurnToAngle(false, -15));
 		}
 		AddSequential(new Shoot());
 		break;
