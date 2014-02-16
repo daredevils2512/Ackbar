@@ -43,20 +43,20 @@ float Trunnion::GetAngle() {
 	return angle;
 }
 void Trunnion::SetAngleMotors(float rate) {
-	if(fabs(rate) > 0) {
-		if(GetAngle() > MINANGLE && rate < 0) {
+//	if(fabs(rate) > 0) {
+//		if(GetAngle() > MINANGLE && rate < 0) {
 			armMotor1->Set(rate);
 			armMotor2->Set(rate);
-		}
-		if(GetAngle() < MAXANGLE && rate > 0) {
-			armMotor1->Set(rate);
-			armMotor2->Set(rate);
-		}
-	}
-	else {
-		armMotor1->Set(0);
-		armMotor2->Set(0);
-	}
+//		}
+//		if(GetAngle() < MAXANGLE && rate > 0) {
+//			armMotor1->Set(rate);
+//			armMotor2->Set(rate);
+//		}
+//	}
+//	else {
+//		armMotor1->Set(0);
+//		armMotor2->Set(0);
+//	}
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
