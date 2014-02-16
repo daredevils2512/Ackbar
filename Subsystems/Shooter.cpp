@@ -31,6 +31,8 @@ void Shooter::InitDefaultCommand() {
 void Shooter::SetWinch(float rate) {
 	if(rate > 0 && !loaded) {
 		winch->Set(rate);
+	} else if(rate < 0) {
+		winch->Set(rate);
 	}
 	else {
 		winch->Set(0);

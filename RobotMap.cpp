@@ -27,6 +27,7 @@ Solenoid* RobotMap::shooterFireSolenoid1 = NULL;
 Solenoid* RobotMap::shooterFireSolenoid2 = NULL;
 SpeedController* RobotMap::clawClawWheel = NULL;
 Solenoid* RobotMap::clawClawSolenoid = NULL;
+Relay* RobotMap::visionledSpike = NULL;
 DigitalInput* RobotMap::lightsBallEye = NULL;
 Relay* RobotMap::lightsClawLeds = NULL;
 Compressor* RobotMap::compressorSubsystemCompressor1 = NULL;
@@ -92,6 +93,9 @@ void RobotMap::init() {
 	
 	clawClawSolenoid = new Solenoid(1, 5);
 	lw->AddActuator("Claw", "ClawSolenoid", clawClawSolenoid);
+	
+	visionledSpike = new Relay(1, 3);
+	lw->AddActuator("Vision", "ledSpike", visionledSpike);
 	
 	lightsBallEye = new DigitalInput(1, 6);
 	lw->AddSensor("Lights", "BallEye", lightsBallEye);
