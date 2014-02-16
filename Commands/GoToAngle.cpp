@@ -32,20 +32,20 @@ void GoToAngle::Execute() {
 	if(Robot::trunnion->GetAngle() > 0.5) {
 		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.1) {
 			if(Robot::trunnion->GetAngle() > angle) {
-				Robot::trunnion->SetAngleMotors(-0.70);
+				Robot::trunnion->SetAngleMotors(-1.0);
 			}
 			else {
-				Robot::trunnion->SetAngleMotors(0.70);
+				Robot::trunnion->SetAngleMotors(1.0);
 			}
 		}
 	}
 	else {
 		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.025) {
 			if(Robot::trunnion->GetAngle() > angle) {
-				Robot::trunnion->SetAngleMotors(-0.70);
+				Robot::trunnion->SetAngleMotors(-1.0);
 			}
 			else {
-				Robot::trunnion->SetAngleMotors(0.70);
+				Robot::trunnion->SetAngleMotors(1.0);
 			}
 		}
 	}

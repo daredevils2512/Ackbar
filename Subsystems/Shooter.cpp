@@ -29,7 +29,7 @@ void Shooter::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 void Shooter::SetWinch(float rate) {
-	if(rate > 0 && !loaded) {
+	if(rate > 0) {
 		winch->Set(rate);
 	} else if(rate < 0) {
 		winch->Set(rate);

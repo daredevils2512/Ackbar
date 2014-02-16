@@ -67,12 +67,13 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		}
 		AddSequential(new Release());
 		AddSequential(new ShootPause());
-		AddSequential(new ClawSet());	
+		AddSequential(new ClawSet());
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
-		AddSequential(new PullBack());
+		AddParallel(new PullBack());
 		AddSequential(new ClawSetWheel());
+		AddSequential(new AutonWait(1.0));
+		AddSequential(new AutonDrive(2, 0.4));
 //		AddSequential(new AutonWait(1.5));
-		AddSequential(new AutonDrive(1.5, 0.5));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
 		AddSequential(new ClawSetWheel());
 		AddSequential(new AutonWait(0.5));
