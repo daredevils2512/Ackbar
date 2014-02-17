@@ -26,6 +26,7 @@
 #include "OI.h"
 class Robot : public IterativeRobot {
 public:
+	Preferences *prefs;
 	Command *autonomousCommand;
 	static OI *oi;
 	LiveWindow *lw;

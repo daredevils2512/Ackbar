@@ -26,6 +26,7 @@ private:
 	
 	JoystickButton* goToTruss;
 	JoystickButton* goToGoal;
+	JoystickButton* goToMidZone;
 	JoystickButton* goToFloor;
 		
 	TriggerButton* drvLeftTrigger;
