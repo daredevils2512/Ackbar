@@ -20,7 +20,7 @@ void RunCompressor::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void RunCompressor::Execute() {
-	if(Robot::compressorSubsystem->Pressurized()) {
+	if(!Robot::compressorSubsystem->Pressurized()) {
 		Robot::compressorSubsystem->On();
 	}
 	else {

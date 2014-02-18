@@ -82,15 +82,17 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new Shoot());
 		AddSequential(new AutonDrive(0.5, 0.75));
 		break;
-	case 3:
+	case 3: //Drive Foreward for zone points
 		AddSequential(new AutonDrive(2, 0.8));
 		break;
-	case 4:
+	case 4: //Vision Track 2 Shot
 		AddSequential(new AutonWait(1));
 		AddSequential(new Visiontrack());
-		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		if(Robot::vision->GetGoalState() == false) {
+			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(-0.5, 0.25));
+		} else {
+			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		}
 		if(!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
@@ -109,7 +111,10 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
 		//AddSequential(new Visiontrack());
 		if(Robot::vision->GetGoalState() == true) {
+			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(0.5, 0.25));
+		} else {
+			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		}
 		AddSequential(new ClawSetWheel());
 		AddSequential(new AutonWait(0.5));

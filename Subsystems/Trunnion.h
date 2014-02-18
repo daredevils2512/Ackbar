@@ -34,6 +34,7 @@ public:
 	static const float MAXANGLE;
 	static const float AUTON1ANGLE;
 	static const float AUTON2ANGLE;
+	static const float CROSSSHOT;
 	Trunnion();
 	void InitDefaultCommand();
 	float GetAngle();
