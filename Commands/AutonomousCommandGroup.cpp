@@ -25,6 +25,8 @@
 #include "PullBack.h"
 #include "ClawSet.h"
 #include "Turn.h"
+#include "ClawWheelToggle.h"
+#include "AutonWheelSet.h"
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -71,16 +73,20 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new ShootPause());
 		AddSequential(new ClawSet());
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
-		AddSequential(new PullBack());
-		AddSequential(new ClawSetWheel(1));
-		AddSequential(new AutonWait(1.0));
+		AddParallel(new PullBack());
+		AddParallel(new AutonWheelSet(1));
+		AddSequential(new AutonWait(0.25));
 		AddSequential(new AutonDrive(2, 0.4));
-//		AddSequential(new AutonWait(1.5));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
-		AddSequential(new ClawSetWheel(0));
-		AddSequential(new AutonWait(0.5));
-		AddSequential(new Shoot());
-//		AddSequential(new AutonDrive(0.5, 0.75));
+		AddParallel(new AutonWheelSet(0));
+		AddSequential(new AutonWait(0.25));
+		if(!Robot::claw->GetClaw()) {
+			AddSequential(new ClawSet());
+		}
+		AddSequential(new Release());
+		AddSequential(new ShootPause());
+		AddParallel(new PullBack());
+		AddSequential(new AutonDrive(0.4, 1.0));
 		break;
 	case 3: //Drive Foreward for zone points
 		AddSequential(new AutonDrive(2, 0.8));
