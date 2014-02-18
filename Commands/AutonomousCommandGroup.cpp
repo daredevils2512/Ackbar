@@ -59,7 +59,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new  Release());
 		AddSequential(new ClawSet());
 		AddParallel(new PullBack());
-		AddSequential(new AutonDrive(0.5, 0.75));
+//		AddSequential(new AutonDrive(0.5, 0.75));
 //		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
 		break;
 	case 2: // 2 SHOT
@@ -72,15 +72,15 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new ClawSet());
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 		AddSequential(new PullBack());
-		AddSequential(new ClawSetWheel());
+		AddSequential(new ClawSetWheel(1));
 		AddSequential(new AutonWait(1.0));
 		AddSequential(new AutonDrive(2, 0.4));
 //		AddSequential(new AutonWait(1.5));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
-		AddSequential(new ClawSetWheel());
+		AddSequential(new ClawSetWheel(0));
 		AddSequential(new AutonWait(0.5));
 		AddSequential(new Shoot());
-		AddSequential(new AutonDrive(0.5, 0.75));
+//		AddSequential(new AutonDrive(0.5, 0.75));
 		break;
 	case 3: //Drive Foreward for zone points
 		AddSequential(new AutonDrive(2, 0.8));
@@ -105,7 +105,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		}
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 		AddSequential(new PullBack());
-		AddSequential(new ClawSetWheel());
+		AddSequential(new ClawSetWheel(1));
 		AddSequential(new AutonWait(1.0));
 		AddSequential(new AutonDrive(2, 0.4));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
@@ -116,7 +116,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		} else {
 			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		}
-		AddSequential(new ClawSetWheel());
+		AddSequential(new ClawSetWheel(0));
 		AddSequential(new AutonWait(0.5));
 		AddSequential(new Shoot());
 		if(Robot::vision->GetGoalState() == true) {

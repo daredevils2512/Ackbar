@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef CLAWSETWHEEL_H
-#define CLAWSETWHEEL_H
+#ifndef UPDATECLAWWHEEL_H
+#define UPDATECLAWWHEEL_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,10 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class ClawSetWheel: public Command {
-	float wheelSpeed;
+class UpdateClawWheel: public Command {
 public:
-	ClawSetWheel(float speed);
+	UpdateClawWheel();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
