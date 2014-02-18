@@ -24,6 +24,7 @@
 #include "ShootPause.h"
 #include "PullBack.h"
 #include "ClawSet.h"
+#include "Turn.h"
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -55,10 +56,10 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		}
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.25));
-//		AddSequential(new  Release());
+		AddSequential(new  Release());
 		AddSequential(new ClawSet());
-//		AddParallel(new PullBack());
-//		AddSequential(new AutonDrive(0.5, 0.75));
+		AddParallel(new PullBack());
+		AddSequential(new AutonDrive(0.5, 0.75));
 //		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
 		break;
 	case 2: // 2 SHOT
@@ -89,32 +90,32 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new Visiontrack());
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		if(Robot::vision->GetGoalState() == false) {
-			AddSequential(new TurnToAngle(true, -15));
+			AddSequential(new Turn(-0.5, 0.25));
 		}
 		if(!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
 		}
-//		AddSequential(new Release());
-//		AddSequential(new ShootPause());
+		AddSequential(new Release());
+		AddSequential(new ShootPause());
 		AddSequential(new ClawSet());
 		if(Robot::vision->GetGoalState() == false) {
-			AddSequential(new TurnToAngle(true, 15));
+			AddSequential(new Turn(0.5, 0.25));
 		}
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
-//		AddSequential(new PullBack());
+		AddSequential(new PullBack());
 		AddSequential(new ClawSetWheel());
 		AddSequential(new AutonWait(1.0));
 		AddSequential(new AutonDrive(2, 0.4));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
-		AddSequential(new Visiontrack());
+		//AddSequential(new Visiontrack());
 		if(Robot::vision->GetGoalState() == true) {
-			AddSequential(new TurnToAngle(true, 15));
+			AddSequential(new Turn(0.5, 0.25));
 		}
 		AddSequential(new ClawSetWheel());
 		AddSequential(new AutonWait(0.5));
-//		AddSequential(new Shoot());
+		AddSequential(new Shoot());
 		if(Robot::vision->GetGoalState() == true) {
-			AddSequential(new TurnToAngle(true, -15));
+			AddSequential(new Turn(-0.5, 0.25));
 		}
 //		AddSequential(new AutonDrive(0.5, 0.5));
 		break;

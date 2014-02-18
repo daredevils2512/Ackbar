@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef TURNTOANGLE_H
-#define TURNTOANGLE_H
+#ifndef TURN_H
+#define TURN_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,23 +21,16 @@
  *
  * @author ExampleAuthor
  */
-class TurnToAngle: public Command {
+class Turn: public Command {
+	float turnDirection;
+	float turnTime;
 public:
-	TurnToAngle(bool relative, float ang);
+	Turn(float dir, float time);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-private:
-	enum Direction {
-		RIGHT = -1,
-		LEFT = 1
-	};
-	static const float TOLERANCE;
-	static const float RATE;
-	float angle;
-	Direction direction;
 };
 
 #endif

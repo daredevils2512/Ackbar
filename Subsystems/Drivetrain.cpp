@@ -64,18 +64,18 @@ void Drivetrain::Shift(bool dir) {
 void Drivetrain::Stop() {
 	chassis->StopMotor();
 }
-void Drivetrain::Turn(float rate) {
+void Drivetrain::Turning(float rate) {
 	left->Set(rate);
-	right->Set(-1 * rate);
+	right->Set(-rate);
 }
 float Drivetrain::GetDirection() {
-	return (-1 * static_cast<int>(gyro->GetAngle())) % 360;
+	return gyro->GetAngle();
 }
 void Drivetrain::Go(float rate) {
 	chassis->TankDrive(rate, -rate);
 }
 int Drivetrain::GetDistance() {
-	return -1 * leftEncoder->GetRaw();
+	return -leftEncoder->GetRaw();
 }
 void Drivetrain::DistanceReset() {
 	leftEncoder->Stop();

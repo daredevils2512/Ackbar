@@ -36,7 +36,7 @@ public:
 	void DriveWithStick(float xAxis, float yAxis);
 	void Shift(bool dir);
 	void Stop();
-	void Turn(float rate);
+	void Turning(float rate);
 	float GetDirection();
 	void Go(float rate);
 	int GetDistance();
