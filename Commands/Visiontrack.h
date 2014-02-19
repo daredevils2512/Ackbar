@@ -12,7 +12,6 @@
 #ifndef VISIONTRACK_H
 #define VISIONTRACK_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #include "AutonomousCommandGroup.h"
 #include "Visiontrack.h"
 #include "GoToAngle.h"
@@ -45,28 +44,28 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	
-	switch(position) {
+
+	switch (position) {
 	case 0:
 		break;
 	case 1: // 1 Shot
 		AddSequential(new AutonWait(1));
 		AddSequential(new Visiontrack());
 		AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		if(Robot::vision->GetGoalState() == false) {
+		if (Robot::vision->GetGoalState() == false) {
 			AddSequential(new AutonWait(4.0));
 		}
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.25));
-		AddSequential(new  Release());
+		AddSequential(new Release());
 		AddSequential(new ClawSet());
 		AddParallel(new PullBack());
-//		AddSequential(new AutonDrive(0.5, 0.75));
-//		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
+		//		AddSequential(new AutonDrive(0.5, 0.75));
+		//		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
 		break;
 	case 2: // 2 SHOT
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
-		if(!Robot::claw->GetClaw()) {
+		if (!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
 		}
 		AddSequential(new Release());
@@ -80,7 +79,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
 		AddParallel(new AutonWheelSet(0));
 		AddSequential(new AutonWait(0.25));
-		if(!Robot::claw->GetClaw()) {
+		if (!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
 		}
 		AddSequential(new Release());
@@ -94,19 +93,19 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	case 4: //Vision Track 2 Shot
 		AddSequential(new AutonWait(1));
 		AddSequential(new Visiontrack());
-		if(Robot::vision->GetGoalState() == false) {
+		if (Robot::vision->GetGoalState() == false) {
 			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(-0.5, 0.25));
 		} else {
 			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		}
-		if(!Robot::claw->GetClaw()) {
+		if (!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
 		}
 		AddSequential(new Release());
 		AddSequential(new ShootPause());
 		AddSequential(new ClawSet());
-		if(Robot::vision->GetGoalState() == false) {
+		if (Robot::vision->GetGoalState() == false) {
 			AddSequential(new Turn(0.5, 0.25));
 		}
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
@@ -116,7 +115,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new AutonDrive(2, 0.4));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
 		//AddSequential(new Visiontrack());
-		if(Robot::vision->GetGoalState() == true) {
+		if (Robot::vision->GetGoalState() == true) {
 			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(0.5, 0.25));
 		} else {
@@ -125,10 +124,10 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new ClawSetWheel(0));
 		AddSequential(new AutonWait(0.5));
 		AddSequential(new Shoot());
-		if(Robot::vision->GetGoalState() == true) {
+		if (Robot::vision->GetGoalState() == true) {
 			AddSequential(new Turn(-0.5, 0.25));
 		}
-//		AddSequential(new AutonDrive(0.5, 0.5));
+		//		AddSequential(new AutonDrive(0.5, 0.5));
 		break;
 	}
 }

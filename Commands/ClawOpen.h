@@ -12,7 +12,6 @@
 #ifndef CLAWOPEN_H
 #define CLAWOPEN_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

@@ -12,7 +12,6 @@
 #ifndef SHIFTUP_H
 #define SHIFTUP_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

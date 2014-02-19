@@ -12,7 +12,6 @@
 #ifndef UPDATECLAWWHEEL_H
 #define UPDATECLAWWHEEL_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef CATCHRELEASED_H
 #define CATCHRELEASED_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class CatchReleased: public CommandGroup {
-public:	
+public:
 	CatchReleased();
 };
 

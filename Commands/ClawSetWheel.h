@@ -12,7 +12,6 @@
 #ifndef CLAWSETWHEEL_H
 #define CLAWSETWHEEL_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef SHOOT_H
 #define SHOOT_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class Shoot: public CommandGroup {
-public:	
+public:
 	Shoot();
 };
 

@@ -12,7 +12,6 @@
 #ifndef SHOOTPAUSE_H
 #define SHOOTPAUSE_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

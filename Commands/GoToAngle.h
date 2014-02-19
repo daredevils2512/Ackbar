@@ -12,7 +12,6 @@
 #ifndef GOTOANGLE_H
 #define GOTOANGLE_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
@@ -24,7 +23,7 @@
 class GoToAngle: public Command {
 public:
 	float angle;
-	
+
 	GoToAngle(bool relative, float ang);
 	virtual void Initialize();
 	virtual void Execute();

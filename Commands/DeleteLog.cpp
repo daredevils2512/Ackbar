@@ -25,7 +25,7 @@ void DeleteLog::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DeleteLog::Execute() {
-	
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +35,7 @@ bool DeleteLog::IsFinished() {
 
 // Called once after isFinished returns true
 void DeleteLog::End() {
-	
+
 }
 
 // Called when another command which requires one or more of the same

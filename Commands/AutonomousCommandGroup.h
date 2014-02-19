@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef AUTONOMOUSCOMMANDGROUP_H
 #define AUTONOMOUSCOMMANDGROUP_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class AutonomousCommandGroup: public CommandGroup {
-public:	
+public:
 	AutonomousCommandGroup(int position);
 };
 

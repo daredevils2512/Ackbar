@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef CATCHPRESSED_H
 #define CATCHPRESSED_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class CatchPressed: public CommandGroup {
-public:	
+public:
 	CatchPressed();
 };
 

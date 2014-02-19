@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef FLOORSNAPPRESSED_H
 #define FLOORSNAPPRESSED_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class FloorSnapPressed: public CommandGroup {
-public:	
+public:
 	FloorSnapPressed();
 };
 

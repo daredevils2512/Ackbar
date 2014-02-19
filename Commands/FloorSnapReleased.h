@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #ifndef FLOORSNAPRELEASED_H
 #define FLOORSNAPRELEASED_H
 
@@ -21,7 +20,7 @@
  * @author ExampleAuthor
  */
 class FloorSnapReleased: public CommandGroup {
-public:	
+public:
 	FloorSnapReleased();
 };
 

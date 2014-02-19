@@ -9,7 +9,6 @@
 // it from being updated in th future.
 
 
-
 #include "Shoot.h"
 #include "ShootPause.h"
 #include "Release.h"
@@ -33,11 +32,11 @@ Shoot::Shoot() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	if(!Robot::claw->GetClaw()) {
+	if (!Robot::claw->GetClaw()) {
 		AddSequential(new ClawSet());
 	}
 	AddSequential(new Release());
 	AddSequential(new ShootPause());
 	AddSequential(new ClawSet());
-	AddSequential(new PullBack());	
+	AddSequential(new PullBack());
 }

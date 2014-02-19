@@ -12,7 +12,6 @@
 #ifndef RUNCOMPRESSOR_H
 #define RUNCOMPRESSOR_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

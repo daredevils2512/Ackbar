@@ -12,7 +12,6 @@
 #ifndef REVERSEWINCH_H
 #define REVERSEWINCH_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

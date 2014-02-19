@@ -12,7 +12,6 @@
 #ifndef TURNTOANGLE_H
 #define TURNTOANGLE_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
@@ -31,8 +30,7 @@ public:
 	virtual void Interrupted();
 private:
 	enum Direction {
-		RIGHT = -1,
-		LEFT = 1
+		RIGHT = -1, LEFT = 1
 	};
 	static const float TOLERANCE;
 	static const float RATE;

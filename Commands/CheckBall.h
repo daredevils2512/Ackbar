@@ -12,7 +12,6 @@
 #ifndef CHECKBALL_H
 #define CHECKBALL_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
