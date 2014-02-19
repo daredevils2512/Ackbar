@@ -39,10 +39,10 @@ void Shooter::SetWinch(float rate) {
 	}
 }
 bool Shooter::GetCocked() {
-	if(eye->Get() == true) {
+	if(eye->Get() == false) {
 		loaded = true;
 	}
-	return eye->Get();
+	return !eye->Get();
 }
 void Shooter::NotLoaded() {
 	loaded = false;
