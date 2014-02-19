@@ -79,7 +79,7 @@ OI::OI() {
 	SmartDashboard::PutData("Turn Right Relative", new TurnToAngle(-15));
 	SmartDashboard::PutData("Turn Left", new TurnToAngle(15));
 	SmartDashboard::PutData("Turn Right", new TurnToAngle(-15));
-	SmartDashboard::PutData("Clear Log", new DeleteLog());
+//	SmartDashboard::PutData("Clear Log", new DeleteLog());
 	
 	goToTruss = new JoystickButton(stick2, 4);
 	goToGoal = new JoystickButton(stick2, 3);

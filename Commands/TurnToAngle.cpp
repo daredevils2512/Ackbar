@@ -30,7 +30,6 @@ TurnToAngle::TurnToAngle(float ang) {
 	ostringstream message;
 	message << "TurnToAngle( " << ang << " )  Turning: " << direction;
 	Robot::Log(message.str());
-	message.str() = "";
 }
 // Called just before this Command runs the first time
 void TurnToAngle::Initialize() {
@@ -52,15 +51,15 @@ bool TurnToAngle::IsFinished() {
 	ostringstream message;
 	message << "TurnToAngle IsFinished(): "  << difference << " GetDirection: " << gyroVal;
 	Robot::Log(message.str());
-	message.str() = "";
-	
+
 	if(direction == LEFT) {
-		message << "TurnToAngle IsFinished() direction = LEFT";
-		Robot::Log(message.str());
-		message.str() = "";
+		ostringstream message2;
+		message2 << "TurnToAngle IsFinished() direction = LEFT";
+		Robot::Log(message2.str());
 		if(difference > -TOLERANCE) {
-			message << "TurnToAngle IsFinished() difference > -tolerance FINISHED";
-			Robot::Log(message.str());
+			ostringstream message3;
+			message3 << "TurnToAngle IsFinished() difference > -tolerance FINISHED";
+			Robot::Log(message3.str());
 			return true;
 		}
 		else {
@@ -68,13 +67,13 @@ bool TurnToAngle::IsFinished() {
 		}
 	}
 	else {
-		message << "TurnToAngle IsFinished() direction = RIGHT";
-		Robot::Log(message.str());
-		message.str() = "";
+		ostringstream message4;
+		message4 << "TurnToAngle IsFinished() direction = RIGHT";
+		Robot::Log(message4.str());
 		if(difference < TOLERANCE) {
-			message << "TurnToAngle IsFinished() difference < tolerance FINISHED";
-			Robot::Log(message.str());
-			message.str() = "";
+			ostringstream message5;
+			message5 << "TurnToAngle IsFinished() difference < tolerance FINISHED";
+			Robot::Log(message5.str());
 			return true;
 		}
 		else {
