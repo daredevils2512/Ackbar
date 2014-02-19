@@ -50,36 +50,22 @@ bool TurnToAngle::IsFinished() {
 	float difference = gyroVal - relativeAngle;
 	
 	ostringstream message;
-	message << "TurnToAngle IsFinished(): "  << difference << " GetDirection: " << gyroVal;
+	message << "TurnToAngle IsFinished(): "  << difference << " GetDirection: " << gyroVal << " Direction = " << direction;
 	Robot::Log(message.str());
 	message.str() = "";
 	
 	if(direction == LEFT) {
-		message << "TurnToAngle IsFinished() direction = LEFT";
+		difference *= -1;
+	}
+
+	if(difference < TOLERANCE) {
+		message << "TurnToAngle IsFinished() difference < tolerance FINISHED";
 		Robot::Log(message.str());
 		message.str() = "";
-		if(difference > -TOLERANCE) {
-			message << "TurnToAngle IsFinished() difference > -tolerance FINISHED";
-			Robot::Log(message.str());
-			return true;
-		}
-		else {
-			return false;
-		}
+		return true;
 	}
 	else {
-		message << "TurnToAngle IsFinished() direction = RIGHT";
-		Robot::Log(message.str());
-		message.str() = "";
-		if(difference < TOLERANCE) {
-			message << "TurnToAngle IsFinished() difference < tolerance FINISHED";
-			Robot::Log(message.str());
-			message.str() = "";
-			return true;
-		}
-		else {
-			return false;
-		}
+		return false;
 	}
 }
 // Called once after isFinished returns true
