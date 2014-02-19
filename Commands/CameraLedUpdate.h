@@ -9,8 +9,8 @@
 // it from being updated in th future.
 
 
-#ifndef LEDTURNON_H
-#define LEDTURNON_H
+#ifndef CAMERALEDUPDATE_H
+#define CAMERALEDUPDATE_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,11 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class LedTurnOn: public Command {
-private:
-	bool ledState;
+class CameraLedUpdate: public Command {
 public:
-	LedTurnOn(bool ledRingState);
+	CameraLedUpdate();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -25,7 +25,6 @@ GoToAngle::GoToAngle(bool relative, float ang) {
 }
 // Called just before this Command runs the first time
 void GoToAngle::Initialize() {
-	
 }
 // Called repeatedly when this Command is scheduled to run
 void GoToAngle::Execute() {

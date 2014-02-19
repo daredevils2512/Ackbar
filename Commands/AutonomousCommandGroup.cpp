@@ -27,6 +27,7 @@
 #include "Turn.h"
 #include "ClawWheelToggle.h"
 #include "AutonWheelSet.h"
+#include "LedTurnOn.h"
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -45,6 +46,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+	AddSequential(new LedTurnOn(true));
 	
 	switch(position) {
 	case 0:
@@ -131,4 +133,5 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 //		AddSequential(new AutonDrive(0.5, 0.5));
 		break;
 	}
+	AddSequential(new LedTurnOn(false));
 }

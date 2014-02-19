@@ -22,6 +22,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	bool goalState;
+	bool ledon;
 public:
 	AxisCamera& camera;
 	VisionSample2014* visionObj;
@@ -35,5 +36,7 @@ public:
 	void SetToAutonomous();
 	bool Hot();
 	void SetGoalState(bool state);
+	void UpdateLedRing();
+	void SetLedRing(bool on);
 };
 #endif

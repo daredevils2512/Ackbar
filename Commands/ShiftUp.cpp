@@ -33,7 +33,6 @@ bool ShiftUp::IsFinished() {
 }
 // Called once after isFinished returns true
 void ShiftUp::End() {
-	
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

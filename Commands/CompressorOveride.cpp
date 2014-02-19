@@ -17,7 +17,6 @@ CompressorOveride::CompressorOveride() {
 }
 // Called just before this Command runs the first time
 void CompressorOveride::Initialize() {
-	
 }
 // Called repeatedly when this Command is scheduled to run
 void CompressorOveride::Execute() {
