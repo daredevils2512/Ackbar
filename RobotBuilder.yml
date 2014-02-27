@@ -433,7 +433,7 @@ Children:
           value: '1'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: CameraLedUpdate}
+        name: Default Command, type: Command, validators: null, value: None}
   - Name: Lights
     Base: Subsystem
     Children:

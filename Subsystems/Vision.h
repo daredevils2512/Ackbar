@@ -38,5 +38,6 @@ public:
 	void SetGoalState(bool state);
 	void UpdateLedRing();
 	void SetLedRing(bool on);
+	void SetLedRingDirectly(bool on);
 };
 #endif

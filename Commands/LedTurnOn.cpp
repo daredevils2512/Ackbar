@@ -18,14 +18,14 @@ LedTurnOn::LedTurnOn(bool ledRingState) {
 }
 // Called just before this Command runs the first time
 void LedTurnOn::Initialize() {
-	Robot::vision->SetLedRing(ledState);
 }
 // Called repeatedly when this Command is scheduled to run
 void LedTurnOn::Execute() {
+	Robot::vision->SetLedRingDirectly(ledState);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool LedTurnOn::IsFinished() {
-	return false;
+	return true;
 }
 // Called once after isFinished returns true
 void LedTurnOn::End() {
