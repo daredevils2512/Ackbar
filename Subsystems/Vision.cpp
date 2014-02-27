@@ -53,5 +53,10 @@ void Vision::SetLedRing(bool on) {
 	ledon = on;
 }
 void Vision::SetLedRingDirectly(bool on) {
-	ledSpike->Set(Relay::kForward);
+	if(on) {
+		ledSpike->Set(Relay::kForward);
+	}
+	else {
+		ledSpike->Set(Relay::kOff);
+	}
 }

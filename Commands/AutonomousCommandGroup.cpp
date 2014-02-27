@@ -28,6 +28,7 @@
 #include "ClawWheelToggle.h"
 #include "AutonWheelSet.h"
 #include "LedTurnOn.h"
+#include "LedTurnOff.h"
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -46,12 +47,12 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+	AddSequential(new LedTurnOn());
 	
 	switch(position) {
 	case 0:
 		break;
 	case 1: // 1 Shot
-		AddSequential(new LedTurnOn(true));
 		AddSequential(new AutonWait(1));
 		AddSequential(new Visiontrack());
 		AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
@@ -64,7 +65,6 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new ClawSet());
 		AddParallel(new PullBack());
 		AddSequential(new AutonDrive(0.5, 0.75));
-		AddSequential(new LedTurnOn(false));
 //		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
 		break;
 	case 2: // 2 SHOT
@@ -95,7 +95,6 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new AutonDrive(2, 0.8));
 		break;
 	case 4: //Vision Track 2 Shot
-		AddSequential(new LedTurnOn(true));
 		AddSequential(new AutonWait(1));
 		AddSequential(new Visiontrack());
 		if(Robot::vision->GetGoalState() == false) {
@@ -133,7 +132,6 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 			AddSequential(new Turn(-0.5, 0.25));
 		}
 		AddSequential(new AutonDrive(0.5, 0.5));
-		AddSequential(new LedTurnOn(false));
 		break;
-	}	
+	}
 }

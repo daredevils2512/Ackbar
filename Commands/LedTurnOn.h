@@ -23,9 +23,8 @@
  */
 class LedTurnOn: public Command {
 private:
-	bool ledState;
 public:
-	LedTurnOn(bool ledRingState);
+	LedTurnOn();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
