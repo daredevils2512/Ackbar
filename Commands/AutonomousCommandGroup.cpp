@@ -51,6 +51,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	
 	switch(position) {
 	case 0:
+		AddSequential(new LedTurnOff());
 		break;
 	case 1: // 1 Shot
 		AddSequential(new AutonWait(1));

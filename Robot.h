@@ -29,6 +29,7 @@ class Robot : public IterativeRobot {
 private:
 	static FILE *logFile;
 public:
+	SendableChooser *chooser;
 	Preferences *prefs;
 	Command *autonomousCommand;
 	static OI *oi;

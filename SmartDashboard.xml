@@ -1,0 +1,62 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Limit Switch" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="151" y="21"/>
+	</widget>
+	<widget field="GYROSCOPE" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="151" y="0"/>
+	</widget>
+	<widget field="EnoughPressure" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="457"/>
+	</widget>
+	<widget field="VisionTracking" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="436"/>
+	</widget>
+	<widget field="ArmAngle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="415"/>
+	</widget>
+	<widget field="TEST VARIABLE" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="394"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="826" y="16"/>
+		<width>455</width>
+		<height>354</height>
+	</static-widget>
+	<widget field="Autonomous Command" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="676" y="17"/>
+	</widget>
+	<widget field="Visiontrack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="293"/>
+	</widget>
+	<widget field="Turn Right" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="259"/>
+	</widget>
+	<widget field="Turn Right Relative" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="225"/>
+	</widget>
+	<widget field="Turn Left" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="191"/>
+	</widget>
+	<widget field="Turn Left Relative" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="157"/>
+	</widget>
+	<widget field="SpikeLEDVal" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="136"/>
+	</widget>
+	<widget field="LedTurnOn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="102"/>
+	</widget>
+	<widget field="LedTurnOff" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="68"/>
+	</widget>
+	<widget field="DeleteLog" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="34"/>
+	</widget>
+	<widget field="CatchReleased" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
