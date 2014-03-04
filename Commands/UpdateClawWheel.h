@@ -22,6 +22,8 @@
  * @author ExampleAuthor
  */
 class UpdateClawWheel: public Command {
+private:
+	bool prevJoy;
 public:
 	UpdateClawWheel();
 	virtual void Initialize();

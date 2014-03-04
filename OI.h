@@ -44,5 +44,6 @@ public:
 	float getDrvX();
 	float getDrvY();
 	float getAngleChange();
+	float getScoopWheelStick();
 };
 #endif
