@@ -9,20 +9,26 @@
 // it from being updated in th future.
 
 
+#ifndef CATCH_H
+#define CATCH_H
 
-#ifndef CATCHRELEASED_H
-#define CATCHRELEASED_H
 
-#include "Commands/CommandGroup.h"
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class CatchReleased: public CommandGroup {
-public:	
-	CatchReleased();
+class Catch: public Command {
+public:
+	Catch();
+	virtual void Initialize();
+	virtual void Execute();
+	virtual bool IsFinished();
+	virtual void End();
+	virtual void Interrupted();
 };
 
 #endif
