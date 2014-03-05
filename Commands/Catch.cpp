@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include "Catch.h"
 #
-
 Catch::Catch() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

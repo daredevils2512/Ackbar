@@ -29,6 +29,7 @@
 #include "AutonWheelSet.h"
 #include "LedTurnOn.h"
 #include "LedTurnOff.h"
+#include "SetCameraForAuton.h"
 
 AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// Add Commands here:
@@ -48,6 +49,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 	AddSequential(new LedTurnOn());
+	AddSequential(new SetCameraForAuton());
 	
 	switch(position) {
 	case 0:

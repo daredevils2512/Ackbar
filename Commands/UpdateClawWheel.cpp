@@ -9,7 +9,6 @@
 // it from being updated in th future.
 #include <cmath>
 #include "UpdateClawWheel.h"
-
 UpdateClawWheel::UpdateClawWheel() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);

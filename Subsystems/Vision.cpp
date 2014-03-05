@@ -31,10 +31,10 @@ bool Vision::GetGoalState() {
 	return goalState;
 }
 void Vision::SetToTeleop() {
-	camera.WriteBrightness(100);
+	camera.WriteBrightness(50);
 }
 void Vision::SetToAutonomous() {
-	camera.WriteBrightness(0);
+	camera.WriteBrightness(25);
 }
 bool Vision::Hot() {
 	return visionObj->ProcessImage();
