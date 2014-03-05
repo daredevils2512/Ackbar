@@ -24,7 +24,7 @@ void Catch::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void Catch::Execute() {
-    bool flashState = static_cast<int>(TimeSinceInitialized() * 2) % 2;
+    bool flashState = static_cast<int>(TimeSinceInitialized() * FLASH_FREQUENCY) % 2;
     Robot::vision->SetLedRingDirectly(flashState);
 }
 // Make this return true when this Command no longer needs to run execute()
