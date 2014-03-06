@@ -28,8 +28,8 @@ void GoToAngle::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void GoToAngle::Execute() {
-	if(Robot::trunnion->GetAngle() > 0.3) {
-		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.1) {
+	if(Robot::trunnion->GetAngle() > 0.5) {
+		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.01) {
 			if(Robot::trunnion->GetAngle() > angle) {
 				Robot::trunnion->SetAngleMotors(-1.0);
 			}
@@ -41,10 +41,10 @@ void GoToAngle::Execute() {
 	else {
 		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.025) {
 			if(Robot::trunnion->GetAngle() > angle) {
-				Robot::trunnion->SetAngleMotors(-1.0);
+				Robot::trunnion->SetAngleMotors(-0.8);
 			}
 			else {
-				Robot::trunnion->SetAngleMotors(1.0);
+				Robot::trunnion->SetAngleMotors(0.8);
 			}
 		}
 	}
