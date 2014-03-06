@@ -20,12 +20,14 @@ Catch::Catch() {
 // Called just before this Command runs the first time
 void Catch::Initialize() {
 	Robot::claw->SetClaw(true);
-	Robot::claw->SetWheelSpeed(1);
+//	Robot::claw->SetWheelSpeed(1.0);
 }
 // Called repeatedly when this Command is scheduled to run
 void Catch::Execute() {
     bool flashState = static_cast<int>(TimeSinceInitialized() * 2) % 2;
     Robot::vision->SetLedRingDirectly(flashState);
+//    Robot::claw->SetWheelSpeed1.0);
+    Robot::claw->clawWheel->Set(1.0);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Catch::IsFinished() {

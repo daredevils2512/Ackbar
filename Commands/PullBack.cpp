@@ -27,7 +27,7 @@ void PullBack::Execute() {
 }
 // Make this return true when this Command no longer needs to run execute()
 bool PullBack::IsFinished() {
-	if(IsTimedOut() || Robot::shooter->GetCocked()) {
+	if(IsTimedOut() || !Robot::shooter->GetCocked()) {
 		return true;
 	}
 	else {

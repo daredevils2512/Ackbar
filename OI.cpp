@@ -54,6 +54,7 @@ OI::OI() {
 	
 	catchButton = new JoystickButton(stick2, 5);
 	catchButton->WhileHeld(new Catch());
+//	catchButton->WhenPressed(new ClawSetWheel(1.0));
 	stick2WinchReverse = new JoystickButton(stick2, 7);
 	stick2WinchReverse->WhenPressed(new ReverseWinch());
 	onlyPullBack2 = new JoystickButton(stick2, 6);
