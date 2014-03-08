@@ -72,9 +72,8 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		break;
 	case 2: // 2 SHOT
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
-		if(!Robot::claw->GetClaw()) {
-			AddSequential(new ClawSet());
-		}
+		AddSequential(new ClawSet());
+		AddSequential(new AutonWait(0.25));
 		AddSequential(new Release());
 		AddSequential(new ShootPause());
 		AddSequential(new ClawSet());

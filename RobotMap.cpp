@@ -80,7 +80,7 @@ void RobotMap::init() {
 	shooterWinch = new Talon(1, 6);
 	lw->AddActuator("Shooter", "Winch", (Talon*) shooterWinch);
 	
-	shooterEye = new DigitalInput(1, 5);
+	shooterEye = new DigitalInput(1, 8);
 	lw->AddSensor("Shooter", "Eye", shooterEye);
 	
 	shooterFireSolenoid1 = new Solenoid(1, 4);

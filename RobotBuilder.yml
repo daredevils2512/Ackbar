@@ -326,7 +326,7 @@ Children:
           default: '1'
           name: Input Channel (Digital)
           validators: &id021 [DigitalChannel]
-          value: '5'
+          value: '8'
         Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id022 ['1', '2']
           default: '1'

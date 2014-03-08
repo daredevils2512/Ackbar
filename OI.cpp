@@ -54,7 +54,6 @@ OI::OI() {
 	
 	catchButton = new JoystickButton(stick2, 5);
 	catchButton->WhileHeld(new Catch());
-//	catchButton->WhenPressed(new ClawSetWheel(1.0));
 	stick2WinchReverse = new JoystickButton(stick2, 7);
 	stick2WinchReverse->WhenPressed(new ReverseWinch());
 	onlyPullBack2 = new JoystickButton(stick2, 6);
@@ -91,9 +90,9 @@ OI::OI() {
 	goToFloor = new JoystickButton(stick2, 1);
 	goToTruss->WhenPressed(new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-	goToMidZone->WhenPressed(new GoToAngle(false, Robot::trunnion->MIDZONEANGLE));
+	goToMidZone->WhenPressed(new ClawSetWheel(1.0));
+	goToMidZone->WhenReleased(new ClawSetWheel(0));
 	goToFloor->WhenPressed(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
-	goToFloor->WhenReleased(new ClawSetWheel(1.0));
 	drvLeftTrigger = new TriggerButton(stick1, 3, 0.5);
 	drvRightTrigger = new TriggerButton(stick1, 3, -0.5);
 	accLeftTrigger = new TriggerButton(stick2, 3, 0.5);
@@ -101,6 +100,7 @@ OI::OI() {
 	accClawTrigger = new TriggerButton(stick2, 6, 0.5);
 	accClawTrigger2 = new TriggerButton(stick2, 6, -0.5);
 	drvLeftTrigger->WhenPressed(new FloorSnapPressed());
+//	drvLeftTrigger->WhileHeld(new ClawSetWheel(-1.0));
 	drvLeftTrigger->WhenReleased(new FloorSnapReleased());
 	drvRightTrigger->WhenPressed(new ShiftDown());
 	drvRightTrigger->WhenReleased(new ShiftUp());

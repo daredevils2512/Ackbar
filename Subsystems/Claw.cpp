@@ -34,6 +34,7 @@ bool Claw::GetClaw() {
 }
 void Claw::SetWheelSpeed(float speed) {
 	clawWheelSpeed = speed;
+	clawWheel->Set(speed);
 }
 void Claw::UpdateWheel() {
 	clawWheel->Set(clawWheelSpeed);
