@@ -36,13 +36,13 @@ void Claw::SetWheelSpeed(float speed) {
 	clawWheelSpeed = speed;
 }
 void Claw::UpdateWheel() {
-	clawWheel->Set(-clawWheelSpeed);
+	clawWheel->Set(clawWheelSpeed);
 }
 void Claw::Toggle() {
 	if(clawWheelSpeed != 0) {
 		clawWheelSpeed = 0;
 	} else {
-		clawWheelSpeed = 1.0;
+		clawWheelSpeed = -1.0;
 	}
 }
 void Claw::Stop() {

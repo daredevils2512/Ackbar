@@ -93,6 +93,7 @@ OI::OI() {
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 	goToMidZone->WhenPressed(new GoToAngle(false, Robot::trunnion->MIDZONEANGLE));
 	goToFloor->WhenPressed(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
+	goToFloor->WhenReleased(new ClawSetWheel(1.0));
 	drvLeftTrigger = new TriggerButton(stick1, 3, 0.5);
 	drvRightTrigger = new TriggerButton(stick1, 3, -0.5);
 	accLeftTrigger = new TriggerButton(stick2, 3, 0.5);

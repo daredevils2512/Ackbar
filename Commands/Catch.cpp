@@ -27,7 +27,7 @@ void Catch::Execute() {
     bool flashState = static_cast<int>(TimeSinceInitialized() * 2) % 2;
     Robot::vision->SetLedRingDirectly(flashState);
 //    Robot::claw->SetWheelSpeed1.0);
-    Robot::claw->clawWheel->Set(1.0);
+    Robot::claw->clawWheel->Set(-1.0);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool Catch::IsFinished() {
@@ -36,7 +36,7 @@ bool Catch::IsFinished() {
 // Called once after isFinished returns true
 void Catch::End() {
 	Robot::claw->SetClaw(false);
-	Robot::claw->SetWheelSpeed(0.4);
+	Robot::claw->SetWheelSpeed(-0.5);
 	Robot::vision->SetLedRingDirectly(false);
 }
 // Called when another command which requires one or more of the same

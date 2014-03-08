@@ -31,6 +31,6 @@ FloorSnapReleased::FloorSnapReleased() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	AddSequential(new ClawSetWheel(0.4));
+	AddSequential(new ClawSetWheel(-0.5));
 	AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 }

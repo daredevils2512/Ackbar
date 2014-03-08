@@ -22,7 +22,7 @@ void AutonWheelSet::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void AutonWheelSet::Execute() {
-	Robot::claw->clawWheel->Set(-wheelSpeed);
+	Robot::claw->clawWheel->Set(wheelSpeed);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool AutonWheelSet::IsFinished() {

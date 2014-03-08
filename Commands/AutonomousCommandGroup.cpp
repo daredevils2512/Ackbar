@@ -57,11 +57,11 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		break;
 	case 1: // 1 Shot
 		AddSequential(new AutonWait(1));
-		AddSequential(new Visiontrack());
-		AddSequential(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-		if(Robot::vision->GetGoalState() == false) {
-			AddSequential(new AutonWait(5.0));
-		}
+//		AddSequential(new Visiontrack());
+		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
+//		if(Robot::vision->GetGoalState() == false) {
+//			AddSequential(new AutonWait(5.0));
+//		}
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.25));
 		AddSequential(new  Release());
@@ -80,7 +80,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new ClawSet());
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 		AddParallel(new PullBack());
-		AddParallel(new AutonWheelSet(1));
+		AddParallel(new AutonWheelSet(-1));
 		AddSequential(new AutonWait(0.25));
 		AddSequential(new AutonDrive(2, 0.4));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
@@ -91,6 +91,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		}
 		AddSequential(new Release());
 		AddSequential(new ShootPause());
+		AddSequential(new ClawSet());
 		AddParallel(new PullBack());
 		AddSequential(new AutonDrive(0.4, 1.0));
 		break;
