@@ -9,6 +9,10 @@
 // it from being updated in th future.
 #include "GoToAngle.h"
 #include <cmath>
+
+const float GoToAngle::highMargin = 0.1;
+const float GoToAngle::lowMargin = 0.05;
+
 GoToAngle::GoToAngle(bool relative, float ang) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -25,48 +29,32 @@ GoToAngle::GoToAngle(bool relative, float ang) {
 }
 // Called just before this Command runs the first time
 void GoToAngle::Initialize() {
+	angleReached = false;
 }
 // Called repeatedly when this Command is scheduled to run
 void GoToAngle::Execute() {
 	if(Robot::trunnion->GetAngle() > 0.5) {
-		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.1) {
-			if(Robot::trunnion->GetAngle() > angle) {
-				Robot::trunnion->SetAngleMotors(-1.0);
+		if(GetDistance() > highMargin) {
+			if(GetDistance() > 0.3) {
+				RunAngleMotors(1.0);
+			} else {
+				RunAngleMotors(0.5);
 			}
-			else {
-				Robot::trunnion->SetAngleMotors(1.0);
-			}
+		} else {
+			angleReached = true;
 		}
 	}
 	else {
-		if(fabs(Robot::trunnion->GetAngle() - angle) > 0.05) {
-			if(Robot::trunnion->GetAngle() > angle) {
-				Robot::trunnion->SetAngleMotors(-0.8);
-			}
-			else {
-				Robot::trunnion->SetAngleMotors(0.8);
-			}
+		if(GetDistance() > lowMargin) {
+			RunAngleMotors(0.8);
+		} else {
+			angleReached = true;
 		}
 	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool GoToAngle::IsFinished() {
-	if(Robot::trunnion->GetAngle() > 0.5) {
-		if((fabs(Robot::trunnion->GetAngle() - angle) < 0.1)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	else {
-		if((fabs(Robot::trunnion->GetAngle() - angle) < 0.05)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+	return angleReached;
 }
 // Called once after isFinished returns true
 void GoToAngle::End() {
@@ -75,4 +63,16 @@ void GoToAngle::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void GoToAngle::Interrupted() {
+}
+
+float GoToAngle::GetDistance() {
+	return fabs(Robot::trunnion->GetAngle() - angle);
+}
+
+void GoToAngle::RunAngleMotors(float speed) {
+	if(Robot::trunnion->GetAngle() > angle) {
+		Robot::trunnion->SetAngleMotors(-speed);
+	} else {
+		Robot::trunnion->SetAngleMotors(speed);
+	}
 }

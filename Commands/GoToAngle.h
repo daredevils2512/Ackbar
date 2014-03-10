@@ -22,6 +22,10 @@
  * @author ExampleAuthor
  */
 class GoToAngle: public Command {
+private:
+	static const float highMargin;
+	static const float lowMargin;
+	bool angleReached;
 public:
 	float angle;
 	
@@ -31,6 +35,9 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	
+	float GetDistance();
+	void RunAngleMotors(float speed);
 };
 
 #endif
