@@ -35,11 +35,7 @@ void GoToAngle::Initialize() {
 void GoToAngle::Execute() {
 	if(Robot::trunnion->GetAngle() > 0.5) {
 		if(GetDistance() > highMargin) {
-			if(GetDistance() > 0.3) {
-				RunAngleMotors(1.0);
-			} else {
-				RunAngleMotors(0.5);
-			}
+			RunAngleMotors(1.0);
 		} else {
 			angleReached = true;
 		}
@@ -70,9 +66,17 @@ float GoToAngle::GetDistance() {
 }
 
 void GoToAngle::RunAngleMotors(float speed) {
-	if(Robot::trunnion->GetAngle() > angle) {
-		Robot::trunnion->SetAngleMotors(-speed);
+	if(GetDistance() > 0.3) {
+		if(Robot::trunnion->GetAngle() > angle) {
+			Robot::trunnion->SetAngleMotors(-speed);
+		} else {
+			Robot::trunnion->SetAngleMotors(speed);
+		}
 	} else {
-		Robot::trunnion->SetAngleMotors(speed);
+		if(Robot::trunnion->GetAngle() > angle) {
+			Robot::trunnion->SetAngleMotors(0.8 * -speed);
+		} else {
+			Robot::trunnion->SetAngleMotors(0.8 * speed);
+		}
 	}
 }
