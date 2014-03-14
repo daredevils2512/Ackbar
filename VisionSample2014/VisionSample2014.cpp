@@ -73,10 +73,11 @@ VisionSample2014::VisionSample2014(void){
 		//image = new RGBImage("/testImage.jpg");		// get the sample image from the cRIO flash
 
 		image = camera.GetImage();				//To get the images from the camera comment the line above and uncomment this one
+		image->Write("CameraImage.bmp");
 		BinaryImage *thresholdImage = image->ThresholdHSV(threshold);	// get just the green target pixels
-		//thresholdImage->Write("/threshold.bmp");
+		thresholdImage->Write("/threshold.bmp");
 		BinaryImage *filteredImage = thresholdImage->ParticleFilter(criteria, 1);	//Remove small particles
-		//filteredImage->Write("Filtered.bmp");
+		filteredImage->Write("Filtered.bmp");
 
 		vector<ParticleAnalysisReport> *reports = filteredImage->GetOrderedParticleAnalysisReports();  //get a particle analysis report for each particle
 
