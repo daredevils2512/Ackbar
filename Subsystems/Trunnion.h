@@ -29,6 +29,7 @@ public:
 	static const float GOALANGLE;
 	static const float MIDZONEANGLE;
 	static const float TRUSSANGLE;
+	static const float ONEPOINTANGLE;
 	static const float FLOORANGLE;
 	static const float MINANGLE;
 	static const float MAXANGLE;

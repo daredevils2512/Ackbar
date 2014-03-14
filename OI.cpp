@@ -86,13 +86,15 @@ OI::OI() {
 	SmartDashboard::PutBoolean("SpikeLEDVal", Robot::vision->ledSpike->Get());
 	goToTruss = new JoystickButton(stick2, 4);
 	goToGoal = new JoystickButton(stick2, 3);
-	goToMidZone = new JoystickButton(stick2, 2);
+	goToOnePoint = new JoystickButton(stick2, 2);
 	goToFloor = new JoystickButton(stick2, 1);
+	pass = new JoystickButton(stick2, 5);
 	goToTruss->WhenPressed(new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
-	goToMidZone->WhenPressed(new ClawSetWheel(1.0));
-	goToMidZone->WhenReleased(new ClawSetWheel(0));
+	goToOnePoint->WhenPressed(new GoToAngle(false, Robot::trunnion->ONEPOINTANGLE));
 	goToFloor->WhenPressed(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
+	pass->WhenPressed(new ClawSetWheel(1.0));
+	pass->WhenReleased(new ClawSetWheel(0));
 	drvLeftTrigger = new TriggerButton(stick1, 3, 0.5);
 	drvRightTrigger = new TriggerButton(stick1, 3, -0.5);
 	accLeftTrigger = new TriggerButton(stick2, 3, 0.5);
