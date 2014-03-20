@@ -109,6 +109,7 @@ void Robot::TeleopPeriodic() {
 //	SmartDashboard::PutNumber("TEST VARIABLE", prefs->GetFloat("Test", 0.0));
 	SmartDashboard::PutNumber("GYROSCOPE", Robot::drivetrain->GetDirection());
 	SmartDashboard::PutBoolean("Limit Switch", Robot::shooter->eye->Get());
+	SmartDashboard::PutNumber("RawVoltage", Robot::trunnion->armAngle->GetVoltage());
 }
 void Robot::TestPeriodic() {
 	lw->Run();

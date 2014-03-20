@@ -58,7 +58,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	case 1: // 1 Shot
 		AddSequential(new AutonWait(1));
 //		AddSequential(new Visiontrack());
-		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
+		AddSequential(new GoToAngle(false, 2.8));
 //		if(Robot::vision->GetGoalState() == false) {
 //			AddSequential(new AutonWait(5.0));
 //		}
@@ -71,7 +71,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 //		SmartDashboard::PutBoolean("AutonGoalState", Robot::vision->GetGoalState());
 		break;
 	case 2: // 2 SHOT
-		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE + 0.1));
+		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.75));
 		AddSequential(new Release());

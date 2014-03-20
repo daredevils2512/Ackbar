@@ -11,7 +11,7 @@
 #include <cmath>
 
 const float GoToAngle::highMargin = 0.1;
-const float GoToAngle::lowMargin = 0.05;
+const float GoToAngle::lowMargin = 0.025;
 
 GoToAngle::GoToAngle(bool relative, float ang) {
 	// Use requires() here to declare subsystem dependencies
@@ -35,16 +35,18 @@ void GoToAngle::Initialize() {
 void GoToAngle::Execute() {
 	if(Robot::trunnion->GetAngle() > 0.5) {
 		if(GetDistance() > highMargin) {
-			RunAngleMotors(1.0);
+			RunAngleMotors(0.9);
 		} else {
 			angleReached = true;
+			Robot::trunnion->SetAngleMotors(0);
 		}
 	}
 	else {
 		if(GetDistance() > lowMargin) {
-			RunAngleMotors(0.8);
+			RunAngleMotors(0.7);
 		} else {
 			angleReached = true;
+			Robot::trunnion->SetAngleMotors(0);
 		}
 	}
 }
@@ -66,17 +68,17 @@ float GoToAngle::GetDistance() {
 }
 
 void GoToAngle::RunAngleMotors(float speed) {
-	if(GetDistance() > 0.3) {
+	if(GetDistance() < 0.2) {
 		if(Robot::trunnion->GetAngle() > angle) {
-			Robot::trunnion->SetAngleMotors(speed);
-		} else {
 			Robot::trunnion->SetAngleMotors(-speed);
+		} else {
+			Robot::trunnion->SetAngleMotors(speed);
 		}
 	} else {
 		if(Robot::trunnion->GetAngle() > angle) {
-			Robot::trunnion->SetAngleMotors(0.8 * speed);
+			Robot::trunnion->SetAngleMotors(0.6 * -speed);
 		} else {
-			Robot::trunnion->SetAngleMotors(0.8 * -speed);
+			Robot::trunnion->SetAngleMotors(0.6 * speed);
 		}
 	}
 }
