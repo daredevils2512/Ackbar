@@ -20,6 +20,7 @@ private:
 	JoystickButton* onlyPullBack2;
 	JoystickButton* onlyPullBack;
 	Joystick* stick1;
+	JoystickButton* stick1PullBack;
 	JoystickButton* runCompressorButton;
 	JoystickButton* reverseWinchButton;
 	JoystickButton* compressorOverideButton;

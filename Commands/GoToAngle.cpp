@@ -9,10 +9,8 @@
 // it from being updated in th future.
 #include "GoToAngle.h"
 #include <cmath>
-
 const float GoToAngle::highMargin = 0.1;
 const float GoToAngle::lowMargin = 0.05;
-
 GoToAngle::GoToAngle(bool relative, float ang) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -60,11 +58,9 @@ void GoToAngle::End() {
 // subsystems is scheduled to run
 void GoToAngle::Interrupted() {
 }
-
 float GoToAngle::GetDistance() {
 	return fabs(Robot::trunnion->GetAngle() - angle);
 }
-
 void GoToAngle::RunAngleMotors(float speed) {
 	if(GetDistance() > 0.3) {
 		if(Robot::trunnion->GetAngle() > angle) {
