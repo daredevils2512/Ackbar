@@ -74,9 +74,9 @@ void GoToAngle::RunAngleMotors(float speed) {
 		}
 	} else {
 		if(Robot::trunnion->GetAngle() > angle) {
-			Robot::trunnion->SetAngleMotors(0.8 * -speed);
-		} else {
 			Robot::trunnion->SetAngleMotors(0.8 * speed);
+		} else {
+			Robot::trunnion->SetAngleMotors(0.8 * -speed);
 		}
 	}
 }
