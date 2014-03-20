@@ -68,9 +68,9 @@ float GoToAngle::GetDistance() {
 void GoToAngle::RunAngleMotors(float speed) {
 	if(GetDistance() > 0.3) {
 		if(Robot::trunnion->GetAngle() > angle) {
-			Robot::trunnion->SetAngleMotors(-speed);
-		} else {
 			Robot::trunnion->SetAngleMotors(speed);
+		} else {
+			Robot::trunnion->SetAngleMotors(-speed);
 		}
 	} else {
 		if(Robot::trunnion->GetAngle() > angle) {

@@ -88,7 +88,7 @@ OI::OI() {
 	goToGoal = new JoystickButton(stick2, 3);
 	goToOnePoint = new JoystickButton(stick2, 2);
 	goToFloor = new JoystickButton(stick2, 1);
-	pass = new JoystickButton(stick2, 5);
+	pass = new JoystickButton(stick2, 9);
 	goToTruss->WhenPressed(new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 	goToOnePoint->WhenPressed(new GoToAngle(false, Robot::trunnion->ONEPOINTANGLE));
