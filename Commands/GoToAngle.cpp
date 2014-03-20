@@ -33,7 +33,7 @@ void GoToAngle::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void GoToAngle::Execute() {
-	if(Robot::trunnion->GetAngle() > 0.5) {
+	if(Robot::trunnion->GetAngle() < 2.5) {
 		if(GetDistance() > highMargin) {
 			RunAngleMotors(1.0);
 		} else {
