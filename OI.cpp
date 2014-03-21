@@ -62,6 +62,8 @@ OI::OI() {
 	onlyPullBack->WhenPressed(new PullBack());
 	stick1 = new Joystick(1);
 	
+	driverPullBack = new JoystickButton(stick1, 3);
+	driverPullBack->WhenPressed(new PullBack());
 	runCompressorButton = new JoystickButton(stick1, 8);
 	runCompressorButton->WhileHeld(new CompressorOveride());
 	reverseWinchButton = new JoystickButton(stick1, 1);
