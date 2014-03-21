@@ -28,6 +28,8 @@
 #include "Commands/FloorSnapPressed.h"
 #include "Commands/FloorSnapReleased.h"
 #include "Commands/GoToAngle.h"
+#include "Commands/GoToAngleTime.h"
+#include "Commands/GoToTheAngle.h"
 #include "Commands/LedTurnOff.h"
 #include "Commands/LedTurnOn.h"
 #include "Commands/PullBack.h"
