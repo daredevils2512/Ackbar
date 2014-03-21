@@ -92,11 +92,13 @@ OI::OI() {
 	goToGoal = new JoystickButton(stick2, 3);
 	goToOnePoint = new JoystickButton(stick2, 2);
 	goToFloor = new JoystickButton(stick2, 1);
+	goToGoalOld = new JoystickButton(stick2, 8);
 	pass = new JoystickButton(stick2, 9);
 	goToTruss->WhenPressed(new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
 	goToOnePoint->WhenPressed(new GoToAngle(false, Robot::trunnion->ONEPOINTANGLE));
 	goToFloor->WhenPressed(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
+	goToGoalOld->WhenPressed(new GoToTheAngle(false, Robot::trunnion->GOALANGLE));
 	pass->WhenPressed(new ClawSetWheel(1.0));
 	pass->WhenReleased(new ClawSetWheel(0));
 	drvLeftTrigger = new TriggerButton(stick1, 3, 0.5);

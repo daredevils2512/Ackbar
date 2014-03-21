@@ -31,6 +31,7 @@ private:
 	JoystickButton* goToOnePoint;
 	JoystickButton* goToFloor;
 	JoystickButton* pass;
+	JoystickButton* goToGoalOld;
 	TriggerButton* drvLeftTrigger;
 	TriggerButton* drvRightTrigger;
 	TriggerButton* accLeftTrigger;
