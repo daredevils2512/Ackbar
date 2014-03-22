@@ -21,7 +21,7 @@ class Vision: public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	bool goalState;
+	static bool goalState;
 	bool ledon;
 public:
 	AxisCamera& camera;

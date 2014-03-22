@@ -1,5 +1,8 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="RawVoltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="102"/>
+	</widget>
 	<widget field="SetCameraForTeleop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="293" y="21"/>
 	</widget>
