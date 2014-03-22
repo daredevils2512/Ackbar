@@ -62,7 +62,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		//3.4
 		//2.8
 		if(Robot::vision->GetGoalState() == false) {
-			AddSequential(new AutonWait(4.0));
+			AddSequential(new AutonWait(2.0));
 		}
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.25));
