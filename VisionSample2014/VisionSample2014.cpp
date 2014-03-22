@@ -60,6 +60,8 @@ VisionSample2014::VisionSample2014(void){
 		int horizontalTargets[MAX_PARTICLES];
 		int verticalTargetCount, horizontalTargetCount;
 		Threshold threshold(99, 134, 0, 172, 100, 255);	//HSV threshold criteria, ranges are in that order ie. Hue is 60-100
+		//Comp: 99, 134, 0, 172, 100, 255
+		//Prac: 119, 146, 45, 255, 56, 255
 		//64, 112,91,255, 36, 205
 		ParticleFilterCriteria2 criteria[] = {
 				{IMAQ_MT_AREA, AREA_MINIMUM, 65535, false, false}
