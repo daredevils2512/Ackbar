@@ -55,14 +55,14 @@ float Trunnion::GetAngle() {
 }
 void Trunnion::SetAngleMotors(float rate) {
 	if(fabs(rate) > 0) {
-		if(GetAngle() > MINANGLE && rate < 0) {
+//		if(GetAngle() > MINANGLE && rate < 0) {
 			armMotor1->Set(rate);
 			armMotor2->Set(rate);
-		}
-		if(GetAngle() < MAXANGLE && rate > 0) {
-			armMotor1->Set(rate);
-			armMotor2->Set(rate);
-		}
+//		}
+//		if(GetAngle() < MAXANGLE && rate > 0) {
+//			armMotor1->Set(rate);
+//			armMotor2->Set(rate);
+//		}
 	}
 	else {
 		armMotor1->Set(0);

@@ -80,7 +80,7 @@ void Robot::TeleopInit() {
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
 	autonomousCommand->Cancel();
-	(new LedTurnOff())->Start();
+//	(new LedTurnOff())->Start();
 //	(new SetCameraForTeleop())->Start();
 //	ledCommand->Start();
 	SmartDashboard::PutNumber("TEST VARIABLE", prefs->GetFloat("Test", 0.0));

@@ -95,13 +95,13 @@ void RobotMap::init() {
 	clawClawSolenoid = new Solenoid(1, 5);
 	lw->AddActuator("Claw", "ClawSolenoid", clawClawSolenoid);
 	
-	visionledSpike = new Relay(1, 1);
+	visionledSpike = new Relay(1, 3);
 	lw->AddActuator("Vision", "ledSpike", visionledSpike);
 	
 	lightsBallEye = new DigitalInput(1, 6);
 	lw->AddSensor("Lights", "BallEye", lightsBallEye);
 	
-	lightsClawLeds = new Relay(1, 3);
+	lightsClawLeds = new Relay(1, 1);
 	lw->AddActuator("Lights", "ClawLeds", lightsClawLeds);
 	
 	compressorSubsystemCompressorSpike = new Relay(1, 2);
