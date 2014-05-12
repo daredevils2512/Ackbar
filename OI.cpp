@@ -36,6 +36,7 @@
 #include "Commands/RunCompressor.h"
 #include "Commands/SetCameraForAuton.h"
 #include "Commands/SetCameraForTeleop.h"
+#include "Commands/SetClawLedandRing.h"
 #include "Commands/ShiftDown.h"
 #include "Commands/ShiftUp.h"
 #include "Commands/Shoot.h"
