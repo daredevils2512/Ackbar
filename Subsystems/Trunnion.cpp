@@ -16,15 +16,15 @@ const float Trunnion::GOALANGLE = 3.2;
 //1.92
 const float Trunnion::MIDZONEANGLE = 2.7;
 //2.4
-const float Trunnion::TRUSSANGLE = 4.0;
+const float Trunnion::TRUSSANGLE = 3.803;
 //3.2
 const float Trunnion::ONEPOINTANGLE = 1.0;
 //0.5
-const float Trunnion::FLOORANGLE = .716;
+const float Trunnion::FLOORANGLE = 0.171;
 //0.01
-const float Trunnion::MINANGLE = .716;
+const float Trunnion::MINANGLE = 0.171;
 //0
-const float Trunnion::MAXANGLE = 4.554;
+const float Trunnion::MAXANGLE = 3.803;
 //4.199
 //3.3, 2.8
 const float Trunnion::AUTON1ANGLE = 2.352;
