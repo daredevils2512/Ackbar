@@ -95,7 +95,7 @@ void RobotMap::init() {
 	clawClawSolenoid = new Solenoid(1, 5);
 	lw->AddActuator("Claw", "ClawSolenoid", clawClawSolenoid);
 	
-	visionledSpike = new Relay(1, 3);
+	visionledSpike = new Relay(1, 8);
 	lw->AddActuator("Vision", "ledSpike", visionledSpike);
 	
 	lightsBallEye = new DigitalInput(1, 6);

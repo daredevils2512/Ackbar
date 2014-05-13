@@ -1,31 +1,31 @@
 <xml version="1.0">
 <dashboard>
 	<widget field="RawVoltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="102"/>
+		<location x="22" y="84"/>
 	</widget>
 	<widget field="SetCameraForTeleop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="293" y="21"/>
+		<location x="364" y="221"/>
 	</widget>
 	<widget field="SetCameraForAuton" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="327"/>
+		<location x="365" y="252"/>
 	</widget>
 	<widget field="Limit Switch" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="151" y="21"/>
+		<location x="43" y="410"/>
 	</widget>
 	<widget field="GYROSCOPE" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="151" y="0"/>
+		<location x="350" y="6"/>
 	</widget>
 	<widget field="EnoughPressure" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="457"/>
+		<location x="22" y="438"/>
 	</widget>
 	<widget field="VisionTracking" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="436"/>
+		<location x="332" y="421"/>
 	</widget>
 	<widget field="ArmAngle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="415"/>
+		<location x="33" y="55"/>
 	</widget>
 	<widget field="TEST VARIABLE" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="394"/>
+		<location x="211" y="82"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
 		<location x="544" y="10"/>
@@ -33,37 +33,37 @@
 		<height>457</height>
 	</static-widget>
 	<widget field="Autonomous Command" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="269" y="177"/>
+		<location x="217" y="120"/>
 	</widget>
 	<widget field="Visiontrack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="293"/>
+		<location x="328" y="385"/>
 	</widget>
 	<widget field="Turn Right" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="259"/>
+		<location x="65" y="269"/>
 	</widget>
 	<widget field="Turn Right Relative" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="225"/>
+		<location x="23" y="302"/>
 	</widget>
 	<widget field="Turn Left" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="191"/>
+		<location x="238" y="272"/>
 	</widget>
 	<widget field="Turn Left Relative" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="157"/>
+		<location x="197" y="301"/>
 	</widget>
 	<widget field="SpikeLEDVal" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="136"/>
+		<location x="370" y="178"/>
 	</widget>
 	<widget field="LedTurnOn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="371" y="105"/>
+		<location x="386" y="108"/>
 	</widget>
 	<widget field="LedTurnOff" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="68"/>
+		<location x="383" y="142"/>
 	</widget>
 	<widget field="DeleteLog" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="34"/>
+		<location x="225" y="49"/>
 	</widget>
 	<widget field="CatchReleased" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="0"/>
+		<location x="33" y="167"/>
 	</widget>
 </dashboard>
 <live-window>
