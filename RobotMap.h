@@ -37,6 +37,7 @@ public:
 	static SpeedController* clawClawWheel;
 	static Solenoid* clawClawSolenoid;
 	static Relay* visionledSpike;
+	static SpeedController* visionPhotonCannon;
 	static DigitalInput* lightsBallEye;
 	static Relay* lightsClawLeds;
 	static Relay* compressorSubsystemCompressorSpike;

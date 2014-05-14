@@ -17,6 +17,7 @@ LedTurnOn::LedTurnOn() {
 }
 // Called just before this Command runs the first time
 void LedTurnOn::Initialize() {
+	SetTimeout(5.0);
 }
 // Called repeatedly when this Command is scheduled to run
 void LedTurnOn::Execute() {
@@ -24,7 +25,7 @@ void LedTurnOn::Execute() {
 }
 // Make this return true when this Command no longer needs to run execute()
 bool LedTurnOn::IsFinished() {
-	return true;
+	return IsTimedOut();
 }
 // Called once after isFinished returns true
 void LedTurnOn::End() {

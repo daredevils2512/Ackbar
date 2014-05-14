@@ -58,7 +58,7 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new LedTurnOff());
 		break;
 	case 1: // 1 Shot
-		AddParallel(new GoToAngle(false, 2.501));
+		AddParallel(new GoToAngle(false, 2.661));
 		AddSequential(new AutonWait(2.0));
 		AddSequential(new Visiontrack());
 		//3.4
