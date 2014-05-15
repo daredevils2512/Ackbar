@@ -60,12 +60,12 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	case 1: // 1 Shot
 		AddParallel(new GoToAngle(false, 2.661));
 		AddSequential(new AutonWait(2.0));
-		AddSequential(new Visiontrack());
+		//AddSequential(new Visiontrack());
 		//3.4
 		//2.8
-		if(Robot::vision->GetGoalState() == false) {
+		/*if(Robot::vision->GetGoalState() == false) {
 			AddSequential(new AutonWait(2.75));
-		}
+		}*/
 		AddSequential(new ClawSet());
 		AddSequential(new AutonWait(0.25));
 		AddSequential(new  Release());
@@ -104,22 +104,22 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		break;
 	case 4: //Vision Track 2 Shot
 		AddSequential(new AutonWait(1));
-		AddSequential(new Visiontrack());
-		if(Robot::vision->GetGoalState() == false) {
+		//AddSequential(new Visiontrack());
+		/*if(Robot::vision->GetGoalState() == false) {
 			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(-0.5, 0.25));
-		} else {
+		} else {*/
 			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
-		}
+		//}
 		if(!Robot::claw->GetClaw()) {
 			AddSequential(new ClawSet());
 		}
 		AddSequential(new Release());
 		AddSequential(new ShootPause());
 		AddSequential(new ClawSet());
-		if(Robot::vision->GetGoalState() == false) {
+		/*if(Robot::vision->GetGoalState() == false) {
 			AddSequential(new Turn(0.5, 0.25));
-		}
+		}*/
 		AddParallel(new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 		AddSequential(new PullBack());
 		AddSequential(new ClawSetWheel(1));
@@ -127,18 +127,18 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 		AddSequential(new AutonDrive(2, 0.4));
 		AddSequential(new GoToAngle(false, Robot::trunnion->AUTON2ANGLE));
 		//AddSequential(new Visiontrack());
-		if(Robot::vision->GetGoalState() == true) {
+		/*if(Robot::vision->GetGoalState() == true) {
 			AddSequential(new GoToAngle(false, Robot::trunnion->CROSSSHOT));
 			AddSequential(new Turn(0.5, 0.25));
-		} else {
+		} else {*/
 			AddSequential(new GoToAngle(false, Robot::trunnion->AUTON1ANGLE));
-		}
+		//}
 		AddSequential(new ClawSetWheel(0));
 		AddSequential(new AutonWait(0.5));
 		AddSequential(new Shoot());
-		if(Robot::vision->GetGoalState() == true) {
+		/*if(Robot::vision->GetGoalState() == true) {
 			AddSequential(new Turn(-0.5, 0.25));
-		}
+		}*/
 		AddSequential(new AutonDrive(0.5, 0.5));
 		break;
 	}
