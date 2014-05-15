@@ -40,6 +40,6 @@ public:
 	void UpdateLedRing();
 	void SetLedRing(bool on);
 	void SetLedRingDirectly(bool on);
-	void ActivatePhotonCannon(bool on);
+	void ActivatePhoton(bool on);
 };
 #endif

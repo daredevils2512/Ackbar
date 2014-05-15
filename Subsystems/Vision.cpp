@@ -62,7 +62,7 @@ void Vision::SetLedRingDirectly(bool on) {
 		ledSpike->Set(Relay::kOff);
 	}
 }
-void Vision::ActivatePhotonCannon(bool on) {
+void Vision::ActivatePhoton(bool on) {
 	if(on) {
 		photonCannon->Set(1.0);
 	} else {
