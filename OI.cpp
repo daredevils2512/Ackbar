@@ -31,6 +31,7 @@
 #include "Commands/GoToAngle.h"
 #include "Commands/LedTurnOff.h"
 #include "Commands/LedTurnOn.h"
+#include "Commands/PhotonCannonEnable.h"
 #include "Commands/PullBack.h"
 #include "Commands/Release.h"
 #include "Commands/ReverseWinch.h"

@@ -455,7 +455,7 @@ Children:
           value: '9'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: PhotonCannonEnable}
+        name: Default Command, type: Command, validators: null, value: ActivatePhotonCannon}
   - Name: Lights
     Base: Subsystem
     Children:
@@ -490,7 +490,7 @@ Children:
           default: '1'
           name: Output Channel (Relay)
           validators: *id027
-          value: '1'
+          value: '3'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: CheckBall}

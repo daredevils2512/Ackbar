@@ -49,16 +49,18 @@ AutonomousCommandGroup::AutonomousCommandGroup(int position) {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	AddSequential(new LedTurnOn());
-	AddSequential(new SetClawLedandRing(true));
-	AddSequential(new SetCameraForAuton());
+//	AddSequential(new LedTurnOn());
+//	AddSequential(new SetClawLedandRing(true));
+//	AddSequential(new SetCameraForAuton());
 	
 	switch(position) {
 	case 0:
 		AddSequential(new LedTurnOff());
 		break;
 	case 1: // 1 Shot
-		AddParallel(new GoToAngle(false, 2.661));
+		AddParallel(new AutonDrive(0.5, 0.65));
+		AddParallel(new GoToAngle(false, 2.55));
+//		2.661
 		AddSequential(new AutonWait(2.0));
 		//AddSequential(new Visiontrack());
 		//3.4
