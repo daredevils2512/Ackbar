@@ -65,16 +65,18 @@ OI::OI() {
 	onlyPullBack->WhenPressed(new PullBack());
 	stick1 = new Joystick(1);
 	
-	driverPullBack = new JoystickButton(stick1, 3);
+	stopClawWheels = new JoystickButton(stick1, 6);
+	stopClawWheels->WhenPressed(new ClawSetWheel(0));
+	driverCatch = new JoystickButton(stick1, 2);
+	driverCatch->WhileHeld(new Catch());
+	driverShoot = new JoystickButton(stick1, 8);
+	driverShoot->WhenPressed(new Shoot());
+	driverPullBack = new JoystickButton(stick1, 7);
 	driverPullBack->WhenPressed(new PullBack());
 	runCompressorButton = new JoystickButton(stick1, 8);
 	runCompressorButton->WhileHeld(new CompressorOveride());
-	reverseWinchButton = new JoystickButton(stick1, 1);
-	reverseWinchButton->WhenPressed(new ReverseWinch());
 	compressorOverideButton = new JoystickButton(stick1, 3);
 	compressorOverideButton->WhileHeld(new CompressorOveride());
-	clawOpenButton = new JoystickButton(stick1, 5);
-	clawOpenButton->WhileHeld(new ClawOpen());
      
         // SmartDashboard Buttons
 	SmartDashboard::PutData("LedTurnOn", new LedTurnOn());
@@ -90,10 +92,10 @@ OI::OI() {
 	SmartDashboard::PutData("Turn Left", new TurnToAngle(false, 15));
 	SmartDashboard::PutData("Turn Right", new TurnToAngle(false, -15));
 	SmartDashboard::PutBoolean("SpikeLEDVal", Robot::vision->ledSpike->Get());
-	goToTruss = new JoystickButton(stick2, 4);
-	goToGoal = new JoystickButton(stick2, 3);
+	goToTruss = new JoystickButton(stick1, 4);
+	goToGoal = new JoystickButton(stick1, 3);
 	goToOnePoint = new JoystickButton(stick2, 2);
-	goToFloor = new JoystickButton(stick2, 1);
+	goToFloor = new JoystickButton(stick1, 1);
 	pass = new JoystickButton(stick2, 9);
 	goToTruss->WhenPressed(new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 	goToGoal->WhenPressed(new GoToAngle(false, Robot::trunnion->GOALANGLE));
@@ -105,8 +107,8 @@ OI::OI() {
 	drvRightTrigger = new TriggerButton(stick1, 3, -0.5);
 	accLeftTrigger = new TriggerButton(stick2, 3, 0.5);
 	accRightTrigger = new TriggerButton(stick2, 3, -0.5);
-	accClawTrigger = new TriggerButton(stick2, 6, 0.5);
-	accClawTrigger2 = new TriggerButton(stick2, 6, -0.5);
+	accClawTrigger = new TriggerButton(stick1, 6, 0.5);
+	accClawTrigger2 = new TriggerButton(stick1, 6, -0.5);
 	drvLeftTrigger->WhenPressed(new FloorSnapPressed());
 //	drvLeftTrigger->WhileHeld(new ClawSetWheel(-1.0));
 	drvLeftTrigger->WhenReleased(new FloorSnapReleased());
@@ -114,8 +116,8 @@ OI::OI() {
 	drvRightTrigger->WhenReleased(new ShiftUp());
 	accLeftTrigger->WhenPressed(new Release());
 	accRightTrigger->WhenPressed(new Shoot());
-	accClawTrigger->WhenPressed(new ClawWheelToggle());
-	accClawTrigger2->WhenPressed(new ClawSet());
+	accClawTrigger->WhileHeld(new ClawSetWheel(-1));
+	accClawTrigger2->WhileHeld(new ClawSetWheel(1));
 //	SmartDashboard::PutData("GoToTrussAngle", new GoToAngle(false, Robot::trunnion->TRUSSANGLE));
 //	SmartDashboard::PutData("GoToFloorAngle", new GoToAngle(false, Robot::trunnion->FLOORANGLE));
 //	SmartDashboard::PutData("GoToGoalAngle", new GoToAngle(false, Robot::trunnion->GOALANGLE));
